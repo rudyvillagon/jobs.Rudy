@@ -1,0 +1,29 @@
+1. Inicio
+
+2.Definir `Numero_ingresado`
+
+3.Definir `Numero_acumulado` 
+
+4.Definir `Numero_base`
+
+5.`Resultado_acumulado` = 0
+
+6.`Numero_base`= 1
+
+7.Mostrar ¨Ingrese un Numero¨
+
+8.Pedir `Numero_ingresado`
+
+9.Mientras que (`Numero_base`≤ `Numero_ingresado` ) repetir:
+
+           i. `Resultado_acumulado`= `Resultado_acumulado`+`Numero_base`
+
+           ii. `Numero_base` = `Numero_base`  + 1
+
+10.FinMientras
+
+11.Mostrar “La suma de todos los números acumulados es¨
+
+12.Mostrar `Resultado_acumulado`
+
+13.Fin

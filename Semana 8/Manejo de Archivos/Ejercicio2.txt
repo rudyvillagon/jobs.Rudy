@@ -1,0 +1,16 @@
+       close( )	Cierra el Archivo.
+       detach( )	Devuelve el flujo sin procesar separado .
+       fileno( )	Devuelve una numero que representa el stream, desde la perspectiva del        sistema .
+       flush( )	Limpia el buffer interno. 
+       isatty( )	Devuelve si el archivo es o no interactivo.
+       read( )	Devuelve el contenido del archivo.
+       readable( )	Devuelve si el archivo se puedo o no leer.
+       readline( )	Devuelve una line del archivo.
+       readlines( )	Devuelve una lista de líneas del archivo.
+       seek( )	Cambia la posición del archivo.
+      seekable( )	Devuelve si el archivo nos permite o no cambiar la posición.
+      tell( )	Devuelve la ubicación actual del archivo .
+      truncat( )	Cambia el archivo a un determinado tamaño .
+      writable( )	Devuelve si el archivo se puede o no escribir en él.
+      write( )	Escribe la cadena especifica en el archivo.
+      writelines( )	Escribe una lista de cadenas en el archivo.
