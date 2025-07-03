@@ -10,24 +10,26 @@ def new_student():
         counter += 1
         fullname = input("Student Fullname:  ")
         section = input("Section:  ")
-        spa_grade = input("Spanish Grade:  ")
-        eng_grade = input("English Grade:  ")
-        social_grade = input("Social Studies Grade:  ")
-        sci_grade = input("Sciences Grade: ")
+        spa_grade = int(input("Spanish Grade:  "))
+        eng_grade = int(input("English Grade:  "))
+        social_grade = int(input("Social Studies Grade:  "))
+        sci_grade = int(input("Sciences Grade: "))
 
         new_stud ={
             "Name" : fullname,
             "Section" : section,
-            "Spanish Grade" : spa_grade,
-            "English Grade" : eng_grade,
-            "Social Studies Grade" : social_grade,
-            "Sciences Grade" : sci_grade       
-
+            "Grades" : [
+            spa_grade,
+            eng_grade,
+            social_grade,
+            sci_grade],
+            
+            
         }
 
         student_list.append(new_stud)
 
-        return student_list
+    return student_list
     
 
 def student_csv(file_name,student_list):
