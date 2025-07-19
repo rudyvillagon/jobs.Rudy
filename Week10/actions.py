@@ -15,6 +15,13 @@ def new_student():
         social_grade = int(input("Social Studies Grade:  "))
         sci_grade = int(input("Sciences Grade: "))
 
+        if not (0 <= spa_grade <= 100 and
+                0 <= eng_grade <= 100 and
+                0 <= social_grade <= 100 and
+                0 <= sci_grade <= 100):
+                raise ValueError("Utilice un numero entre 0 y 100")
+
+
         new_stud ={
             "Name" : fullname,
             "Section" : section,
