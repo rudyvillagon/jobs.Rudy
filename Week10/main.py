@@ -1,8 +1,9 @@
-from menu import main_manu
-menu_chosse = main_manu
+from menu import menu_actions
+
+menu_pick = menu_actions
 
 def main():
-    menu_chosse
+    menu_pick()
 
 main()
 

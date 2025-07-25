@@ -1,25 +1,38 @@
-import csv
+
+
+
+def get_valid_int(prompt, min_val=0, max_val=100):
+    while True:
+        try:
+            value = int(input(prompt))
+            if min_val <= value <= max_val:
+                return value
+            else:
+                print(f" The Value most be between {min_val} and {max_val}.")
+        except ValueError:
+            print(" Please enter a valid integer.")
 
 
 def new_student():
-    num_student = int(input("Number of records you wanna do?: "))
+
     student_list = []
-    counter = 0
+    
 
-    while counter < num_student:
-        counter += 1
-        fullname = input("Student Fullname:  ")
-        section = input("Section:  ")
-        spa_grade = int(input("Spanish Grade:  "))
-        eng_grade = int(input("English Grade:  "))
-        social_grade = int(input("Social Studies Grade:  "))
-        sci_grade = int(input("Sciences Grade: "))
+    try:
+        num_student = int(input("How many students do you want to register? "))
+    except ValueError:
+        print("Please enter a valid number.")
+        return
 
-        if not (0 <= spa_grade <= 100 and
-                0 <= eng_grade <= 100 and
-                0 <= social_grade <= 100 and
-                0 <= sci_grade <= 100):
-                raise ValueError("Utilice un numero entre 0 y 100")
+    for i in range(num_student):
+        print(f" Student Registration {i + 1}:")
+        fullname = input("Name: ")
+        section = input("Section: ")
+
+        spa_grade = get_valid_int("Spanish Grade: ")
+        eng_grade = get_valid_int("English Grade: ")
+        social_grade = get_valid_int("Social studies Grade: ")
+        sci_grade = get_valid_int("Sciences Grade: ")
 
 
         new_stud ={
@@ -39,16 +52,47 @@ def new_student():
     return student_list
     
 
-def student_csv(file_name,student_list):
-    with open(file_name, "w" ,encoding="utf-8") as file:
-        if student_list:
-            writer = csv.DictWriter(file,fieldnames = student_list[0].keys())
-            writer.writeheader()
-            for school_list in student_list:
 
-                writer.writerow(school_list)      
+def percentages_stu(student_list):
+    top_3_students = []
+    sorted_students = []
+    student_percentages = {}
+    students_data = student_list
     
-students = new_student()    
+
+    for student_record in students_data:
+        name = student_record["Name"]
+        grades = student_record["Grades"]
+        
+        if grades: 
+            percentage = sum(grades) / len(grades)
+        else:
+            percentage = 0  
+
+        
+        student_percentages[name] = percentage
+    
+    sorted_students = sorted(student_percentages.items(), key=lambda item: item[1], reverse=True)
+
+    
+    top_3_students = sorted_students[:3]
+    
+    return sorted_students,top_3_students
+    
+    
+    
+def overall_percentage(sorted_students):
+    
+
+    total_of_averages = sum(student_tuple[1] for student_tuple in sorted_students)
+    number_of_top_students = len(sorted_students)
+
+    overall_average = total_of_averages / number_of_top_students
+    print (overall_average)
+    
+#new_student()
+#top_3_students, sorted_students = percentages_stu()
+#overall_percentage(sorted_students)
 
 
-student_csv("student_list.csv",students)
+
