@@ -36,23 +36,28 @@ def menu_actions():
                     student_list.extend(new_students)
           elif choice == 2 :
                if student_list:
-                    print("Student List:")
+                    print("\n===Student List===")
                     for student in student_list:
                          print(student)
           elif choice == 3 :
                if student_list:
                     sorted_students, top_3 = percentages_stu(student_list)
+                    print("\n===Top 3 Best Students===")
                     for name, avg in top_3:
                          print(f"{name}: {avg:.2f}%")
           elif choice == 4 :
                if student_list:
+                    print("\n===Overall Average===")
                     sorted_students, _ = percentages_stu(student_list)
                     overall_percentage(sorted_students)    
+                    
           elif choice == 5 :
                student_csv("student_list.csv", student_list)
+               print("\n===You Save the List===")
+               
           else:    
                student_list = read_students_csv()
-               print("Data imported successfully.")
+               print("\n===Data imported successfully.===")
 
 
 menu_actions()
