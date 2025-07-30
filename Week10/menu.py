@@ -52,7 +52,7 @@ def menu_actions():
                     overall_percentage(sorted_students)    
                     
           elif choice == 5 :
-               student_csv("student_list.csv", student_list)
+               student_csv(student_list, "student_list.csv")
                print("\n===You Save the List===")
                
           else:    
