@@ -13,7 +13,7 @@ def main_menu():
      print("4- View the overall average of grades of all students")
      print("5- Export all actual data to a CSV file")
      print("6- Import data from a previous file")
-
+     print("7- Close Program")
      try:
           menu_choice = int(input("Select an option: "))
           return menu_choice
@@ -55,9 +55,17 @@ def menu_actions():
                student_csv(student_list, "student_list.csv")
                print("\n===You Save the List===")
                
-          else:    
+          elif choice == 6 :    
                student_list = read_students_csv()
                print("\n===Data imported successfully.===")
+               
+
+          elif choice == 7:
+               print("\n=== PROGRAM CLOSED ===")
+               break
+
+          else:
+               print("\nInvalid option. Please select between 1 and 7.")
 
 
 menu_actions()
