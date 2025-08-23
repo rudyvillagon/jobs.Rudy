@@ -10,7 +10,7 @@ def Int_Review(func):
         
         for i, arg in enumerate(args):
             if not isinstance(arg, (int, float)):
-                raise TypeError(f"\nThe caracter {i+1} = ({arg}) its not a number ❌ \n")
+                raise TypeError(f"\nThe character {i+1} = ({arg}) its not a number ❌ \n")
             
         for key, value in kwargs.items():
             if not isinstance(value, (int, float)):
