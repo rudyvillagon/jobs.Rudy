@@ -24,22 +24,26 @@ class User:
 
 
 def verifi(func):
-    def wrapper(user: User,*args):
+    def wrapper(user: User,*args, **kwargs):
         
         if user.age < 18:
-            raise ValueError (f" The User is {user.age} years old, not an Adult ❌")
-        return func( user,*args)
+            raise ValueError (f" {user.age} Years, You do not have access because of your age ❌")
+        return func( user,*args, **kwargs)
     return wrapper
 
 @verifi
 def starter(user : User):
-    return f"\nThe age of the user is {user.age} years old and is an adult. ✅\n"
+    return f"\n{user.age} Years, Access Granted. ✅\n"
 
 
 
 my_user = User(date(2010, 1, 1))
+my_user2 = User(date_of_birth=date(2000, 1, 1))
 
 try:
+    
+    print(starter(my_user2))
     print(starter(my_user))
+    
 except ValueError as e:
-    print(f"\nErros:{e}\n")
+    print(f"\nError:{e}\n")
