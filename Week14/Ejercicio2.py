@@ -50,11 +50,11 @@ class Double_Ended_Queue:
             print(" = = The pile is empty = = ")
             return None
         delet_left = self.end_left 
-        self.end_left  = delet_left.prev
+        self.end_left  = delet_left.next
         if self.end_left is not None:
             self.end_left.next = None  
         else:
-            self.front = None
+            self.end_left = None
         print(f"\n ❌ You Remove: {delet_left}")
         
     def pop_right(self):
@@ -66,7 +66,7 @@ class Double_Ended_Queue:
         if self.end_right is not None:
             self.end_right.next = None  
         else:
-            self.front = None
+            self.end_right = None
         print(f"\n ❌ You Remove: {delet_right}")
         
 
@@ -90,6 +90,7 @@ deq.push_left("C")
 deq.print_stack()
 
 deq.pop_right()
+deq.pop_left()
 
 deq.print_stack()
 
