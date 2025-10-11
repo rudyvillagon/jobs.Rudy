@@ -43,5 +43,25 @@
         "Title": "Wash Inside",
         "Amount": "-21",
         "Category": "Car"
+    },
+    {
+        "Title": "Guatemala",
+        "Amount": "-4556",
+        "Category": "Trip"
+    },
+    {
+        "Title": "Mexico",
+        "Amount": "-3000",
+        "Category": "Trip"
+    },
+    {
+        "Title": "USA",
+        "Amount": "-5000",
+        "Category": "Trip"
+    },
+    {
+        "Title": "New Rims",
+        "Amount": "-350",
+        "Category": "Car"
     }
 ]
