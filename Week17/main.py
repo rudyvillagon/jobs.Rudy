@@ -1,9 +1,9 @@
-from interfaces import  _main_menu
+from interfaces import  main_menu
 
 
 
 def main():
-    _main_menu()
+    main_menu()
 
 main()
 #mi_aplicacion/

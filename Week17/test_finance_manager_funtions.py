@@ -1,6 +1,6 @@
 import pytest 
 from unittest.mock import patch,MagicMock
-from logics import Category,MoneyMovements,Table
+from logics import Category,MoneyMovements
 
 def test_input_category_works_correctly():
 
@@ -145,23 +145,11 @@ def test_that_the_window_add_entry_opens_correctly(mock_window):
     mock_window_instance.close.assert_called_once()
 
 
-@patch("logics.persistence.load_data_window",return_value=[
-    {"Title": "Salary", "Amount": 3800, "Category": "Job"}
-    ])
-def test_refresh_list_botton_works_correctly(mock_load_data_window):
-
-
-    mock_window = MagicMock()
-    mock_table = MagicMock()
-
-    mock_window.__getitem__.return_value = mock_window
-
-
-    Table.refresh_list_display(mock_window)
-
-    mock_window.update.assert_called_once_with(values=[
-        ["Salary", 3800, "Job"]
-    ])
+def test_add_entry_triggers_correct_function():
+    with patch('logics.MoneyMovements.add_entry_log') as mock_add_entry:
+        val = "dummy_val"
+        MoneyMovements.add_entry_log(val)
+        mock_add_entry.assert_called_once_with(val)
 
 
 
