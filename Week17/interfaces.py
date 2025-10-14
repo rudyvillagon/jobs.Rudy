@@ -1,9 +1,9 @@
 import FreeSimpleGUI as sg
 import persistence
-from logics import MoneyMovements,Category,Table
+from logics import MoneyMovements,Category
 
 
-def _main_menu():
+def main_menu():
 
     sg.theme('DarkBlue14')
     reader = persistence.load_data_window()
@@ -15,12 +15,14 @@ def _main_menu():
 
     layout = [
         [sg.Text("Spendings and Incomes")],
-        [sg.Table( values=key_val, max_col_width=25,headings=headings,key="-TABLE-"),sg.Button("Refresh List")],
+        [sg.Table( values=key_val, max_col_width=25,headings=headings,key="-TABLE-")],
         [sg.Button("New Category"),sg.Button("Add Spent"),sg.Button("Add Entry")],
         
     ]
 
-    window = sg.Window("Personal Finance Manager", layout)
+    window = sg.Window("Personal Finance Manager", layout,finalize=True)
+
+    
 
     while True:
             event, _ = window.read()
@@ -31,12 +33,27 @@ def _main_menu():
                 Category.new_category(val)
             if event == "Add Spent":
                 MoneyMovements.add_spend_log(val)
+                reader = persistence.load_data_window()
+                if reader:
+                    headings = list(reader[0].keys())
+                    update_val = [[item.get(key, "") for key in headings] for item in reader]
+                    window["-TABLE-"].update(values=update_val)
             if event == "Add Entry":
                 MoneyMovements.add_entry_log(val)
-            if event == "Refresh List":
-                Table.resfresh_list_display(window)
+                reader = persistence.load_data_window()
+                if reader:
+                    headings = list(reader[0].keys())
+                    update_val = [[item.get(key, "") for key in headings] for item in reader]
+                    window["-TABLE-"].update(values=update_val)
+
+                
                 
                 
 
     window.close()
+
+
+
+
+
 

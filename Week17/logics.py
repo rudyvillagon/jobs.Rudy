@@ -1,4 +1,5 @@
 
+ 
 import persistence
 import FreeSimpleGUI as sg
 
@@ -76,6 +77,12 @@ class MoneyMovements:
                 break
             if event == "Add File":
                 try:
+                    if values["Input_title"] == "":
+                        sg.popup_error("You must complete all the information ❗")
+                        break
+                    if values["Input_amount"] == "":
+                        sg.popup_error("You must complete all the information ❗")
+                        break
                     if values["-COMBO-"] == "":
                         sg.popup_error("You need to select a Category ❌")
                     else:
@@ -89,6 +96,7 @@ class MoneyMovements:
                         if new_file and new_file not in val:
                             persistence.save_data_window(new_file)
                             sg.popup("File Added:", values["Input_title"])
+                            
                             break
                 except ValueError:
                     sg.popup_error("The Amount most be a Number")
@@ -124,6 +132,12 @@ class MoneyMovements:
                 break
             if event == "Add File":
                 try:
+                    if values["Input_title"] == "":
+                        sg.popup_error("You must complete all the information ❗")
+                        break
+                    if values["Input_amount"] == "":
+                        sg.popup_error("You must complete all the information ❗")
+                        break
                     if values["-COMBO-"] == "":
                         sg.popup_error("You need to select a Category ❌")
                     else:
@@ -137,16 +151,9 @@ class MoneyMovements:
                         if new_file and new_file not in val:
                             persistence.save_data_window(new_file)
                             sg.popup("File Added:", values["Input_title"])
+                            
                             break
                 except ValueError:
                     sg.popup_error("The Amount most be a Number")       
         window.close()
 
-class Table:
-
-    def refresh_list_display(window):
-        reader = persistence.load_data_window()
-        if reader:
-            headings = list(reader[0].keys())
-            update_val = [[item[key] for key in headings] for item in reader]
-            window["-TABLE-"].update(values=update_val)
