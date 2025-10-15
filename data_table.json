@@ -1,12 +1,14 @@
 [
     {
-        "Title": "Oil Change",
-        "Amount": "-12",
+        "Title": "Wash Car",
+        "Amount": "21",
+        "Type": "Spend",
         "Category": "Car"
     },
     {
-        "Title": "job salary",
-        "Amount": "4000",
+        "Title": "Salary June",
+        "Amount": "3000",
+        "Type": "Entry",
         "Category": "Job"
     }
 ]

@@ -1,5 +1,5 @@
 
- 
+
 import persistence
 import FreeSimpleGUI as sg
 
@@ -33,7 +33,9 @@ class Category:
 
         while True:
             event, values = window.read()
-            
+            if values["Input_Category"].strip() == "":
+                        sg.popup_error("You must complete all the information ❗")
+                        break
             if event == sg.WIN_CLOSED or event == "Cancel":
                 break
             if event == "Add":
@@ -58,8 +60,8 @@ class MoneyMovements:
         layout = [
             [sg.Text("Title:")],
             [sg.Input(key = "Input_title")],
-            [sg.Text("Amount:")],
-            [sg.Input(default_text="-",key = "Input_amount")],
+            [sg.Text("Amount:                                                                 "),sg.Text("Type:")],
+            [sg.Input(key = "Input_amount"),sg.Combo(values=["Spend","Entry"], key="-Type-",)],
             [sg.Text("Category:")],
             [sg.Combo(values=persistence.load_data(), key='-COMBO-', readonly=True, size=(30, 1))],
             [sg.Button("Add File"),sg.Button("Cancel")],
@@ -77,18 +79,21 @@ class MoneyMovements:
                 break
             if event == "Add File":
                 try:
-                    if values["Input_title"] == "":
+                    if values["Input_title"].strip() == "":
                         sg.popup_error("You must complete all the information ❗")
                         break
-                    if values["Input_amount"] == "":
+                    if values["Input_amount"].strip() == "":
                         sg.popup_error("You must complete all the information ❗")
                         break
                     if values["-COMBO-"] == "":
                         sg.popup_error("You need to select a Category ❌")
+                    if values["-Type-"] == "":
+                        sg.popup_error("You need to select a Type of Movement ❕❕")
                     else:
                         new_file = {
                             "Title" : values["Input_title"],
                             "Amount" : values["Input_amount"],
+                            "Type" : values["-Type-"],
                             "Category" : values["-COMBO-"],
                         }
                         
@@ -113,8 +118,8 @@ class MoneyMovements:
         layout = [
             [sg.Text("Title:")],
             [sg.Input(key = "Input_title")],
-            [sg.Text("Amount:")],
-            [sg.Input(key = "Input_amount")],
+            [sg.Text("Amount:                                                                 "),sg.Text("Type:")],
+            [sg.Input(key = "Input_amount"),sg.Combo(values=["Spend","Entry"], key="-Type-")],
             [sg.Text("Category:")],
             [sg.Combo(values=persistence.load_data(), key='-COMBO-', readonly=True, size=(30, 1))],
             [sg.Button("Add File"),sg.Button("Cancel")],
@@ -132,18 +137,21 @@ class MoneyMovements:
                 break
             if event == "Add File":
                 try:
-                    if values["Input_title"] == "":
+                    if values["Input_title"].strip() == "":
                         sg.popup_error("You must complete all the information ❗")
                         break
-                    if values["Input_amount"] == "":
+                    if values["Input_amount"].strip() == "":
                         sg.popup_error("You must complete all the information ❗")
                         break
                     if values["-COMBO-"] == "":
                         sg.popup_error("You need to select a Category ❌")
+                    if values["-Type-"] == "":
+                        sg.popup_error("You need to select a Type of Movement ❕❕")
                     else:
                         new_file = {
                             "Title" : values["Input_title"],
                             "Amount" : values["Input_amount"],
+                            "Type" : values["-Type-"],
                             "Category" : values["-COMBO-"],
                         }
                         

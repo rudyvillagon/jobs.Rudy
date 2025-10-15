@@ -9,13 +9,13 @@ def main_menu():
     reader = persistence.load_data_window()
     val = persistence.load_data()
     
-    headings = list(reader[0].keys())
+    headings = ["Title","Amount","Type","Category"]
     
     key_val = [[item[key] for key in headings] for item in reader]
 
     layout = [
         [sg.Text("Spendings and Incomes")],
-        [sg.Table( values=key_val, max_col_width=25,headings=headings,key="-TABLE-")],
+        [sg.Table( values=key_val, max_col_width=25,headings=headings,key="-TABLE-",selected_row_colors=("white", "green"))],
         [sg.Button("New Category"),sg.Button("Add Spent"),sg.Button("Add Entry")],
         
     ]
