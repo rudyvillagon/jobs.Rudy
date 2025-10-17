@@ -1,0 +1,14 @@
+[
+    {
+        "Title": "Wash Car",
+        "Amount": "21",
+        "Type": "Spend",
+        "Category": "Car"
+    },
+    {
+        "Title": "Salary June",
+        "Amount": "3000",
+        "Type": "Entry",
+        "Category": "Job"
+    }
+]
