@@ -1,0 +1,58 @@
+body {
+    
+    background-color: #4363f2;
+    
+}
+
+form {
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 33rem;
+    height: 36rem;
+    background-color: rgb(255, 255, 255);
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+#black_text {
+    font-family: "Aptos Black", sans-serif;
+    font-weight: 900;
+    color:rgb(37, 37, 37);
+    text-align: left;
+}
+
+#title1 {
+    color: rgb(145, 144, 144);
+}
+
+input[type="text"] {
+    width: 30rem;
+    content: 50xp;
+    padding: 1rem;
+    border: 1rem;
+    background-color: #F5F8FB;
+}
+
+#candidates {
+    width: 32rem;
+    color: rgb(104, 104, 104);
+    content: 50xp;
+    padding: 1rem;
+    border: 1rem;
+    background-color: #F5F8FB;
+}
+
+input[type= "submit"] {
+    width: 12rem;
+    background-color: #4363f2;
+    padding: 1rem;
+    border: 1rem;
+    color: #F5F8FB;
+    border-radius: 5px;
+    
+}
+
