@@ -4,7 +4,11 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.container_one {
+:root {
+    --font-main: "Aptos Black", sans-serif;
+}
+
+.container_cards_animals {
     background-color: #e7e5e5ff;
     width: 90%;
     height: 90%;
@@ -12,87 +16,24 @@ body {
     box-shadow: 0px 3px 6px
 }
 
-.container_two {
-    background-color: #e7e5e5ff;
-    width: 90%;
-    height: 90%;
-    margin: 1.5em;
-    box-shadow: 0px 3px 6px
-}
-
-.container_three {
-    background-color: #e7e5e5ff;
-    width: 90%;
-    height: 90%;
-    margin: 1.5em;
-    box-shadow: 0px 3px 6px
-}
-
-.photo_one_bear {
+.photos_cards_show_animals {
     width: 85%;
     height: auto;
+    margin-left: 7%;
     margin-top: 6%
 }
 
-.photo_two_leon {
-    width: 85%;
-    height: auto;
-    margin-top: 6%
-}
-
-.photo_three_tiburon {
-    width: 85%;
-    height: auto;
-    margin-top: 6%
-}
-
-.bear_title {
-    font-family:"Aptos Black", sans-serif;
+.animals_main_title {
+    font-family: var(--font-main);
     font-weight: 600;
     margin-top: 3%;
     margin-left: 7%;
     margin-bottom: 2%;
 }
 
-.leon_title {
-    font-family:"Aptos Black", sans-serif;
-    font-weight: 600;
-    margin-top: 3%;
-    margin-left: 7%;
-    margin-bottom: 2%;
-}
-
-.tiburon_title {
-    font-family:"Aptos Black", sans-serif;
-    font-weight: 600;
-    margin-top: 3%;
-    margin-left: 7%;
-    margin-bottom: 2%;
-}
-
-.content_bear {
-    font-family:"Aptos Black", sans-serif;
-    font-size: 100%;
-    font-weight: 300;
-    margin-top: 1%;
-    margin-left: 7%;
-    margin-right: 7%;
-    margin-bottom: 9%;  
-}
-
-.content_leon {
-    font-family:"Aptos Black", sans-serif;
-    font-size: 100%;
-    font-weight: 300;
-    margin-top: 1%;
-    margin-left: 7%;
-    margin-right: 7%;
-    margin-bottom: 9%;  
-}
-
-.content_tiburon {
-    font-family:"Aptos Black", sans-serif;
-    font-size: 100%;
+.content_p_animals {
+    font-family: var(--font-main);
+    font-size: 1rem;
     font-weight: 300;
     margin-top: 1%;
     margin-left: 7%;
