@@ -1,7 +1,7 @@
 body {
     
     background-color: #4363f2;
-    
+    font-family: "Aptos Black", sans-serif;
 }
 
 form {
@@ -18,14 +18,13 @@ form {
     border-radius: 20px;
 }
 
-#black_text {
-    font-family: "Aptos Black", sans-serif;
+#top_first_title {
     font-weight: 900;
     color:rgb(37, 37, 37);
     text-align: left;
 }
 
-#title1 {
+#sub_second_title {
     color: rgb(145, 144, 144);
 }
 
@@ -37,7 +36,7 @@ input[type="text"] {
     background-color: #F5F8FB;
 }
 
-#candidates {
+#candidates_selector {
     width: 32rem;
     color: rgb(104, 104, 104);
     content: 50xp;
