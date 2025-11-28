@@ -1,11 +1,8 @@
 body {
+    font-family: "Aptos Black", sans-serif;
     background-color: rgb(207, 206, 206);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-}
-
-:root {
-    --font-main: "Aptos Black", sans-serif;
 }
 
 .container_cards_animals {
@@ -24,7 +21,6 @@ body {
 }
 
 .animals_main_title {
-    font-family: var(--font-main);
     font-weight: 600;
     margin-top: 3%;
     margin-left: 7%;
@@ -32,7 +28,6 @@ body {
 }
 
 .content_p_animals {
-    font-family: var(--font-main);
     font-size: 1rem;
     font-weight: 300;
     margin-top: 1%;

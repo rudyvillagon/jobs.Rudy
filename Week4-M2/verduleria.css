@@ -1,10 +1,10 @@
 body {
+    font-family: "Arial", sans-serif;;
     display: flex;
     flex-direction: column;
 }
 
 :root {
-    --font-main:"Arial", sans-serif;
     --font-secundary:"Roboto", sans-serif;
     --background-main-color:rgb(240, 239, 239);
 }
@@ -24,7 +24,6 @@ body {
 }
 
 .name {
-    font-family:  var(--font-main);
     font-size: 1.4rem;
     font-weight: 700;
     transform: scaleY(1.5);
@@ -48,7 +47,6 @@ body {
 }
 
 .menu_bar {
-    font-family: var(--font-main);
     font-size: 1rem;
     font-weight: 500;
     color: grey;
@@ -69,7 +67,6 @@ poster {
 }
 
 .header_fruit {
-    font-family:  var(--font-main);
     font-size: 3rem;
     font-weight: 520;
     margin-left: 2rem;
@@ -77,7 +74,6 @@ poster {
 }
 
 .description_product {
-    font-family:  var(--font-main);
     font-size: 1rem;
     font-weight: 500;
     margin-left: 2rem;
@@ -140,7 +136,6 @@ catalog {
 }
 
 .name_fruit {
-    font-family:  var(--font-main);
     font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
@@ -148,7 +143,6 @@ catalog {
 }
 
 .description_fruit {
-    font-family:  var(--font-main);
     text-align: center;
     font-size: 0.9rem;
     font-weight: 500;
@@ -157,7 +151,6 @@ catalog {
 }
 
 .price_card {
-    font-family:  var(--font-main);
     text-align: center;
     font-size: 1rem;
     font-weight: 700;
@@ -191,7 +184,6 @@ catalog {
 }
 
 .sec_h2 {
-    font-family:  var(--font-main);
     font-weight: 500;
     font-size: 1rem;
     margin-top: -1rem;

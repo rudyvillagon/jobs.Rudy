@@ -1,0 +1,349 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    margin: auto;
+    background-color: #E6E6E6;
+}
+
+:root {
+    --font-secondary: "Aptos Black", sans-serif;
+    --background-main-color: aliceblue;
+}
+
+.top_page {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.top_title {
+    width: 100%;
+    margin: auto;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 40px;
+    margin-top: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.white_line {
+    width: 100%;
+    margin: auto;
+    background-color: var(--background-main-color);
+    width: 450px;
+    height: 18px;
+    margin-top: 1.2rem;
+    padding-left: 5rem;
+}
+
+.date {
+    width: 100%;
+    margin: auto;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 1.2rem;
+    padding-left: 1rem;
+}
+
+.blue_background {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    background-color: rgb(21, 61, 164);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-top: 1.2rem;
+    padding: 0rem;
+    height: 4rem;
+}
+
+.this_week {
+    position: relative;
+    font-family: var(--font-secondary);
+    text-align: left;
+    white-space: nowrap;
+    color: aliceblue;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-top: 1.3rem;
+    margin-left: 1.5rem;
+    
+}
+
+.award {
+    position: relative;
+    font-family: var(--font-secondary);
+    text-align: center;
+    color: var(--background-main-color);
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-top: 1.rem;
+    margin-left: 46rem
+}
+
+.last_week {
+    position: relative;
+    font-family: var(--font-secondary);
+    text-align: center;
+    color: var(--background-main-color);
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-top: 1.rem;
+    margin-left: 2rem
+}
+
+.peak {
+    position: relative;
+    font-family: var(--font-secondary);
+    text-align: center;
+    color: var(--background-main-color);
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-top: 1.rem;
+    margin-left: 1.1rem
+}
+
+.wks {
+    font-family: var(--font-secondary);
+    color: var(--background-main-color);
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-top: 1.rem;
+    margin-left: 1rem
+}
+
+.first_rank {
+    padding: 0px 0;
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.background_1 {
+    width: 90%;
+    margin: 0 auto;
+    background-color: black;
+    height: 20rem;
+    width: 8rem; 
+    margin-right: 0rem;
+}
+
+.number_1 {
+    font-family: var(--font-secondary);
+    color: var(--background-main-color);
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-top: 8rem;
+    margin-right: 0rem;
+    
+}
+
+.artist_photo {
+    width: 100%;
+    margin: auto;
+    margin-left: 0rem;
+    margin-top: 0rem;
+    margin-right: 0rem;
+}
+
+.artist_banner {
+    background-color: var(--background-main-color);
+    height: 20rem;
+    width: 24rem;
+    margin-left: 0rem;
+}
+
+.song_name {
+    width: 100%;
+    margin: auto;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 40px;
+    letter-spacing: -2px;
+    margin-top: 7rem;
+    margin-left: 2rem;
+}
+
+.artist_name {
+    width: 100%;
+    margin: auto;
+    font-size: 25px;
+    font-weight: 100;
+    line-height: 40px;
+    letter-spacing: -2px;
+    margin-top: 0rem;
+    margin-left: 2rem;
+}
+
+.one_submit {
+    background-color: var(--background-main-color);
+    border: 1rem;
+    color: grey;
+    font-size: 30px;
+    font-weight: 800;
+    position: absolute;
+    margin-top: -3rem;
+    margin-left: 20rem;
+}
+
+.background_award_star_and_peak_first_on_list {
+    display: flex;
+    background-color: #E6E6E6;
+    width: 90%;
+    margin: 0 auto;
+    width: 5rem;
+    height: 20rem;
+}
+
+.background_last_week_and_wks_num_first_on_list {
+    display: flex;
+    background-color: var(--background-main-color);
+    width: 90%;
+    margin: 0 auto;
+    width: 5rem;
+    height: 20rem;
+}
+
+.award_star {
+    font-size:3rem;
+    margin-top: 8rem;
+    margin-left: 1.5rem;
+}
+
+.last_week_peak_and_wks_num {
+    font-weight: 800;
+    border: 1rem;
+    font-size:3rem;
+    margin-top: 8rem;
+    margin-left: 1.5rem;
+}
+
+.card_rank_list {
+    padding: 0px 0;
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.background_number_rank {
+    width: 90%;
+    margin: 0 auto;
+    background-color: black;
+    height: 10.9rem;
+    width: 8rem; 
+    margin-right: 0rem;
+}
+
+.number_rank_settings {
+    font-family: var(--font-secondary);
+    color: var(--background-main-color);
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-top: 3.5rem;
+    margin-right: 0rem;
+    
+}
+
+.artist_photo_album {
+    width: 100%;
+    margin: auto;
+    margin-left: 0rem;
+    margin-top: 0rem;
+    margin-right: 0rem;
+}
+
+.artist_banner_rank {
+    background-color: var(--background-main-color);
+    height: 10.9rem;
+    width: 33.1rem;
+    margin-left: 0rem;
+}
+
+.song_name_rank {
+    width: 100%;
+    margin: auto;
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 40px;
+    letter-spacing: -2px;
+    margin-top: 3rem;
+    margin-left: 2rem;
+}
+
+.artist_name_rank {
+    width: 100%;
+    margin: auto;
+    font-size: 23px;
+    font-weight: 100;
+    line-height: 40px;
+    letter-spacing: -2px;
+    margin-top: -0.7rem;
+    margin-left: 2rem;
+}
+
+.submit {
+    background-color: var(--background-main-color);
+    border: 1rem;
+    color: grey;
+    font-size: 30px;
+    font-weight: 800;
+    position: absolute;
+    margin-top: -3rem;
+    margin-left: 29rem;
+}
+
+.background_award_star_and_peak_rank {
+    display: flex;
+    background-color: #E6E6E6;
+    width: 90%;
+    margin: 0 auto;
+    width: 5rem;
+    height: 10.9rem;
+}
+
+.background_last_week_and_wks_num_rank {
+    display: flex;
+    background-color: var(--background-main-color);
+    width: 90%;
+    margin: 0 auto;
+    width: 5rem;
+    height: 10.9rem;
+}
+
+.award_star_rank {
+    font-size:2rem;
+    margin-top: 4rem;
+    margin-left: 2rem;
+}
+
+.last_week_num_rank {
+    font-weight: 400;
+    border: 1rem;
+    font-size:2rem;
+    margin-top: 4.5rem;
+    margin-left: 2rem;
+}
+
+.peak_num_rank {
+    font-weight: 400;
+    border: 1rem;
+    font-size:2rem;
+    margin-top: 4.5rem;
+    margin-left: 2.4rem;
+}
+
+.wks_num_rank {
+    font-weight: 400;
+    border: 1rem;
+    font-size:2rem;
+    margin-top: 4.5rem;
+    margin-left: 1.5rem;
+}
+
+

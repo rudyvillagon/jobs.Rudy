@@ -1,7 +1,7 @@
 body {
     
     background-color: #4363f2;
-    
+    font-family: "Aptos Black", sans-serif;
 }
 
 form {
@@ -19,7 +19,6 @@ form {
 }
 
 #top_first_title {
-    font-family: "Aptos Black", sans-serif;
     font-weight: 900;
     color:rgb(37, 37, 37);
     text-align: left;
