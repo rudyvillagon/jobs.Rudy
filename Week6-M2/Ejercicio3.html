@@ -1,0 +1,34 @@
+<html>
+    <input id="full_name" placeholder="full name">
+    <br />
+    <input id="Email" placeholder="Email">
+    <br />
+    <input id="password" placeholder="Password">
+    <div id="employee_panel">
+        <input type="radio" name="radio_mark" value="yes"/>
+        <label id="s1">Employee</label>
+        <input type="radio" name="radio_mark" value="no" checked/>
+        <label id="s2">Not an employee</label>
+    </div>
+    <div id="hiddenInput">
+        <input id="emloyee_Input" placeholder="Employee ID" style="display:none;">
+    </div>
+</html>
+
+
+<script>
+
+    const result = document.querySelectorAll('input[name="radio_mark"]'); 
+    const employee_Input = document.getElementById("emloyee_Input");
+
+    result.forEach(radio => {
+        radio.addEventListener("change", () => {
+
+            if(radio.value === "yes") {
+                employee_Input.style.display = "block";
+            } else {
+                employee_Input.style.display = "none";
+            }
+        });
+    });
+</script>

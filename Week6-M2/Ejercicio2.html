@@ -1,0 +1,21 @@
+<html>
+    <div>
+        <input id="input_user">
+        <button id="button_post">Post</button>
+        <p id="user_post"></p>
+    </div>
+</html>
+
+<script>
+    const buttonAddPost = document.getElementById("button_post");
+    const input = document.getElementById("input_user");
+    const post = document.getElementById("user_post");
+
+    buttonAddPost.addEventListener("click",() => {
+        const value =input.value;
+        post.textContent = value;
+        input.value = "";
+    })
+
+
+</script>
