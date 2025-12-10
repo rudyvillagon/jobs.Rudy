@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <button id="color_changer">Change Color</button>
+        <div id="container">
+            <p id="expText" class="redBackground">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae urna vel felis pharetra commodo. Integer non sem ut justo pulvinar gravida.</p>
+        </div>
+    </body>
+</html>
+
+<script>
+
+
+    const expText = document.querySelector("#expText");
+    const colorButton = document.querySelector("#color_changer");
+
+    const backGroundsColors = ["redBackground","blueBackground","greenBackground","yellowBackground","cyanBackground","pinkBackground"];
+
+    function changeBackground() {
+
+        expText.classList.remove(...backGroundsColors);
+        const randomBackground = backGroundsColors[Math.floor(Math.random() * backGroundsColors.length)];
+        expText.classList.add(randomBackground);
+    } 
+
+    colorButton.addEventListener("click", changeBackground);
+
+</script>
