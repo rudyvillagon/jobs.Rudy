@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="Login.js" defer></script>
+        <link href="Login.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <figure class="Top_icon">
+            <img src="https://i.ibb.co/v6zmxXwK/usuario-seguro.png" width= 80% height=30%>
+        </figure>
+        <h1 id="Top_header">User Login</h1>
+        <div id="subtitle">Enter your User name and Password</div>
+        <br/>
+        <div class="inputs">
+            <input type="text" class="inputLogin" id="User_name" placeholder="User Name">
+            <div class="twoin">
+                <input type="password" class="inputLogin" id="Password" placeholder="Your Password">
+                <button onclick="toggleLoginPassword()" id="Show_botton">Show</button>
+            </div>
+        </div>
+        <div>
+            <button type="button" id="Login_botton" class="lowerButtons">Login</button>
+            <button type="button" id="Register" class="lowerButtons">Register now</button>
+        </div>
+    </body>
+</html>
+
