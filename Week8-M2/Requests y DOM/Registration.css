@@ -1,0 +1,88 @@
+html {
+    background-color: rgb(115, 211, 211);
+    font-family: "Lucida Bright",serif;
+}
+
+body {
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+    height: 45rem;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.Top_icon {
+    font-size: 3rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.ImgRegister {
+    margin-left: 6rem;
+    margin-top: -1rem;
+}
+
+#Main_header {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 3rem;
+    color: rgb(58, 128, 128);
+    margin-left: -1.5rem;
+    margin-top: -1rem;
+    font-weight: 900;
+}
+
+#subtitle {
+    color: rgb(58, 128, 128);
+    margin-left: 1rem;
+    margin-top: -5rem;
+    font-weight: 900;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.inputReg {
+    border-color:rgb(115, 211, 211);
+    width: 27rem;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-top: 0rem;
+}
+
+#Show_botton {
+    width: 4rem;
+    height: 3.2rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    color: azure;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: rgb(58, 128, 128);
+    border: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.buttonCreateAccount {
+    width: 15rem;
+    height: 3rem;
+    cursor: pointer;
+    color: azure;
+    font-size: 1.3rem;
+    font-weight: 800;
+    background-color: rgb(58, 128, 128);
+    border: 0;
+    margin-left: 1rem;
+    margin-top: 2rem;
+    border-radius: 2em;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
