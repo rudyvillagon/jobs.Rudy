@@ -22,7 +22,7 @@ SELECT product_id, SUM(quantity) as total_amount
 --Obtenga todas las facturas realizadas por el mismo comprador
 SELECT *
     FROM bills
-    WHERE full_name = 'Juan Castro Jimenes';
+    WHERE client_email = 'Juancas@gmail.com';
 
 --Obtenga todas las facturas ordenadas por monto total de forma descendente
 SELECT *
@@ -30,5 +30,6 @@ SELECT *
     ORDER by total_amount DESC
 
 --Obtenga una sola factura por número de factura.
-SELECT DISTINCT bill_number
-    FROM bill_products;
+SELECT DISTINCT id
+    FROM bills;
+
