@@ -1,5 +1,5 @@
 -- SQLite
-/*
+
 --Creo la tabla categorias con las columnas id, name, description.
 CREATE TABLE categories (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -82,5 +82,4 @@ SELECT *
     FROM products
     ORDER By price DESC
     LIMIT 5;
-*/    
 
