@@ -75,7 +75,7 @@ SELECT *
 --Seleccione los products con la palabra "apple" usando Like
 SELECT * 
     FROM products
-    WHERE name LIKE 'apple';
+    WHERE name LIKE '%apple%';
 
 --Seleccione los 5 products mas caros
 SELECT *
@@ -83,3 +83,22 @@ SELECT *
     ORDER By price DESC
     LIMIT 5;
 
+--Establezca stock_available = 0 donde price <= 0
+UPDATE products SET
+    stock_available = 0
+WHERE price <=0;
+
+--Aumente el price en 100 unidades para todos los productos cuando stock_available sea menor a 10
+UPDATE products SET
+    price = price +100
+WHERE stock_available BETWEEN 1 AND 9;
+
+--Disminuya stock_available en 1 para un product_id específico
+UPDATE products SET
+    stock_available = stock_available -1
+WHERE id = 7;
+
+--Verifique con SELECT * FROM products ORDER BY id ASC LIMIT 10
+SELECT *
+    FROM products
+    ORDER BY id ASC LIMIT 10;
