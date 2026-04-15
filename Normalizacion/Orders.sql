@@ -1,5 +1,5 @@
 -- SQLite
--- Los principales problemas de esta tabla es que tiene datos muy repetidos listas que se pueden poner en subtablas y agrupar mucha informacion que pertenece a una misma categoria 
+-- Los principales problemas de esta tabla es que tiene datos muy repetidos listas que se pueden poner en subtablas y agrupar mucha informacion que pertenece a una misma categoria, Usuarios con mas de una direccion y productos que se repiten en la lista.
 
 /*Order ID	Customer Name	Customer Phone	Address	    Item ID	Item Name	    Price	Quantity	Special Request	Delivery Time
 001         Alice	        123-456-7890	123 Main St	101	    Cheeseburger	$8	    2	        No onions	    6:00 PM
@@ -9,7 +9,7 @@
 003	        Claire	        555-123-4567	789 Oak St	105	    Salad	        $6	    1	        No croutons	    12:00 PM
 004	        Claire	        555-123-4567	464 Georgia St	106	Water	        $1	    1	        None	        5:00 PM
 */
--- cree la tabla principal de Orders, mas sencilla con solo tres cuatro columnas en vez de las diez que originalmente tenia
+-- cree la tabla principal de Orders, mas sencilla con solo cuatro columnas en vez de las diez que originalmente tenia
 CREATE TABLE Orders (
     Deteals_Order INTEGER REFERENCES Deteals_Order(Deteal_ID) NOT NULL,
     Customer_ID INTEGER REFERENCES Customers(Customer_ID) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE Deteals_Order (
     );
     
 
--- creo una tabla para almacenar ahi toda informacion personal de cada Customer, metiendo ahi las columnas Name, Phone y Address
+-- creo una tabla para almacenar ahi toda informacion personal de cada Customer, metiendo ahi las columnas Name y Phone
 CREATE TABLE Customer_Information (
     Customer_ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Name VARCHAR(60) NOT NULL,
@@ -46,12 +46,12 @@ CREATE TABLE Special_Request (
     Request_Name VARCHAR(60) NOT NULL
     );
 
---creo una tabla para cuando los usuarios tengan mas de una direccion 
+--creo una tabla para cuando los usuarios tengan mas de una direccion, como en el caso de Claire 
 CREATE TABLE Address (
     Address_ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Customer_ID INTEGER REFERENCES Customers(Customer_ID) NOT NULL,
     Full_Address VARCHAR(60) NOT NULL
-
+    );
 
 INSERT INTO Customer_Information (Name, Phone)
     VALUES ('Alice', '123-456-7890'),
@@ -78,7 +78,6 @@ INSERT INTO Address (Customer_ID, Full_Address)
         (3, '464 Georgia St');
 
 
-
 INSERT INTO Deteals_Order (Deteal_ID, Product_ID, Special_Request_ID, Quantity)
     VALUES (001, 1, 1, 2),
         (001, 2, 2, 3),
@@ -87,7 +86,7 @@ INSERT INTO Deteals_Order (Deteal_ID, Product_ID, Special_Request_ID, Quantity)
         (003, 4, 4, 6),
         (004, 5, NULL,1);
 
-INSERT INTO Orders (Deteals_Order, Customer_ID, Address_ID, Delivery_time),
+INSERT INTO Orders (Deteals_Order, Customer_ID, Address_ID, Delivery_time)
     VALUES (001, 1, 1, '6:00 PM'),
         (002, 2, 2, '7:30 PM'),
         (003, 3, 3, '12:00 PM'),
