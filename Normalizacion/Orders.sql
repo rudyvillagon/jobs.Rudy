@@ -65,7 +65,7 @@ Order ID	Customer Name	Customer Phone	Address	    Item ID	Item Name	    Price	Qu
 -- redundancia y mejorando la integridad de los datos.  
 
 
-
+*/
 -- cree la tabla principal de Orders, mas sencilla con solo cuatro columnas en vez de las diez que originalmente tenia
 
 CREATE TABLE Orders (
@@ -110,7 +110,7 @@ CREATE TABLE Address (
     Customer_ID INTEGER REFERENCES Customers(Customer_ID) NOT NULL,
     Full_Address VARCHAR(60) NOT NULL
     );
-*/
+
 INSERT INTO Customer_Information (Name, Phone)
     VALUES ('Alice', '123-456-7890'),
         ('Bob','987-654-3210'),

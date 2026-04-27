@@ -29,12 +29,12 @@ VIN	        Make	    Model	Year	Color	OwnerID	OwnerName	OwnerPhone	    Insurance
 |  1G1RA6EH1FU      2      Volt     2015    Red            |
 |                                                          |
 
-|      Make         |             Owners                    |              Insurance                      |   
-|   ID    Make      |   Owner_ID  Owner_Name  Owner_Phone   |  ID   Insurance_Company   Insurance_Policy  |
-|    1    Honda     |     101       Alice     123-456-7890  |  1    ABC Insurance       Fire & Theft      |
-|    2    Chvrolet  |     102       Bob       987-654-3210  |  2    XYZ Insurance       Full Cover        |
-|                   |     103       Claire    555-123-4567  |  3    DEF Insurance       Collision         |
-|                   |     104       Dave      111-222-3333  |  4    GHI Insurance       Basic Legal       |
+|      Make         |             Owners                    |              Insurance                      |        Insurance_Company      |  Insurance_Policy
+|   ID    Make      |   Owner_ID  Owner_Name  Owner_Phone   |  ID   Insurance_Company   Insurance_Policy  |   ID        Company_Name      | ID    Insurance_Type
+|    1    Honda     |     101       Alice     123-456-7890  |  1            1                  1          |   1         ABC Insurance     | 1     Fire & Theft
+|    2    Chvrolet  |     102       Bob       987-654-3210  |  2            2                  2          |   2         XYZ Insurance     | 2     Full Cover
+|                   |     103       Claire    555-123-4567  |  3            3                  3          |   3         DEF Insurance     | 3     Collision
+|                   |     104       Dave      111-222-3333  |  4            4                  4          |   4         GHI Insurance     | 4     Basic Legal
 
 
 --Creo estas tablas intermedias para que un carro pueda tener varios dueños y a su vez varios Seguros de Riesgos
@@ -45,7 +45,6 @@ VIN	        Make	    Model	Year	Color	OwnerID	OwnerName	OwnerPhone	    Insurance
 |1HGCM82633A    102      |1HGCM82633A       2       |
 |5J6RM4H79EL    103      |5J6RM4H79EL       3       |
 |1G1RA6EH1FU    104      |1G1RA6EH1FU       4       |
-
 
 
 
@@ -76,8 +75,18 @@ CREATE TABLE Owners (
 --cree una tabla para todo lo que tiene que ver con el seguro de los vihiculos
 CREATE TABLE Insurance (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    Insurance_Company VARCHAR(40) NOT NULL,
-    Insurance_Policy VARCHAR(40) NOT NULL
+    Insurance_Company INTEGER REFERENCES Insurance_Company(ID) NOT NULL,
+    Insurance_Policy INTEGER REFERENCES Insurance_Policy(ID) NOT NULL
+    );
+
+CREATE TABLE Insurance_Company (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Company_Name VARCHAR(60) NOT NULL
+    );
+
+CREATE TABLE Insurance_Policy (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Insurance_Type VARCHAR(60) NOT NULL
     );
 
 CREATE TABLE Car_Insurance (
@@ -101,10 +110,22 @@ INSERT INTO Owners (Owner_ID, Owner_Name, Owner_Phone)
         (104, 'Dave', '111-222-3333');
 
 INSERT INTO Insurance (Insurance_Company, Insurance_Policy)
-    VALUES ('ABC Insurance','Fire & Theft'),
-        ('XYZ Insurance','Full Cover'),
-        ('DEF Insurance','Collision'),
-        ('GHI Insurance','Basic Legal');
+    VALUES (1,1),
+        (2,2),
+        (3,3),
+        (4,4);
+
+INSERT INTO Insurance_Company (Company_Name)
+    VALUES ('ABC Insurance'),
+        ('XYZ Insurance'),
+        ('DEF Insurance'),
+        ('GHI Insurance');
+
+INSERT INTO Insurance_Policy (Insurance_Type)
+    VALUES ('Fire & Theft'),
+        ('Full Cover'),
+        ('Collision'),
+        ('Basic Legal');
 
 INSERT INTO car_Information (VIN, Make_ID, Model, Year, Color)
     VALUES ('1HGCM82633A',1 ,'Accord','2003','Silver'),
