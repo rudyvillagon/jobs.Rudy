@@ -53,9 +53,9 @@ INSERT INTO Rents (BookID ,CustomerID, State)
 */
 
 --Obtenga todos los libros y sus autores (en caso de tenerlos)
-SELECT author.Name, Books.Name
-FROM Authors AS author
-INNER JOIN Books AS books
+SELECT books.Name, author.Name
+FROM Books AS books
+LEFT JOIN Authors AS author
 ON author.ID = books.Author;
 
 --Obtenga todos los libros que no tienen autor
@@ -95,6 +95,7 @@ WHERE rents.State IS NULL;
 --Obtenga todos los libros que han sido rentados y están en estado “Overdue”
 SELECT books.Name, rents.State
 FROM Books AS books
-LEFT JOIN Rents AS rents 
+INNER JOIN Rents AS rents 
 ON rents.BookID = books.ID
-WHERE rents.State IS 'Overdue';
+WHERE rents.State = 'Overdue';
+
