@@ -2,8 +2,7 @@ DO $$
 
 DECLARE
     V_Bill_ID VARCHAR(40) := 'B003';
-    V_Product_ID VARCHAR(40);
-    V_Products_return INTEGER;
+    V_Product_Record RECORD;    
 
 BEGIN
     IF NOT EXISTS (
@@ -25,18 +24,20 @@ BEGIN
     RAISE EXCEPTION 'THE BILL IS ALL READY RETURNED';
     END IF;
 
-    SELECT Product_ID INTO V_Product_ID
-    FROM Bill_Details
-    WHERE Bill_ID = V_Bill_ID;
+    FOR V_Product_Record IN (
 
-    SELECT Quantity INTO V_Products_return
+    SELECT Product_ID, Quantity
     FROM Bill_Details
-    WHERE Bill_ID = V_Bill_ID;
+    WHERE Bill_ID = V_Bill_ID
 
+    )
+    LOOP
 
     UPDATE Products 
-    SET Inventory = Inventory + V_Products_return
-    WHERE ID = V_Product_ID;
+    SET Inventory = Inventory + V_Product_Record.Quantity
+    WHERE ID = V_Product_Record.Product_ID;
+
+    END LOOP;
 
     UPDATE Bills
     SET Status = 'Returned'
