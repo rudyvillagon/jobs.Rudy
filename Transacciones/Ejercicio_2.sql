@@ -13,7 +13,7 @@ BEGIN
     FROM Products
     WHERE ID = 'P003'; --Product 1
 
-    SELECT Quantuty INTO V_Stock_Product_2
+    SELECT Inventory INTO V_Stock_Product_2
     FROM Products
     WHERE ID = 'P001'; --Product 2
 
