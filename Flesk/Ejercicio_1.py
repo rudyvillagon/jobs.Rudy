@@ -32,17 +32,24 @@ def tasks():
         for field in required_fields:
             if field not in data:
                 raise ValueError(f"{field} is missing from the information")
-            
+
+        valid_status = ["Pending", "In Progress", "Complete"]
+
+        if data["Status"] not in valid_status:
+            raise ValueError(
+                "Invalid Status. Allowed values: Pending, In Progress, Complete"
+            )
+
         for task in tasks_list:
             if task["ID"] == data["ID"]:
                 return jsonify(message="ID is already in Use"),400
             
         tasks_list.append(
             {
-                "ID" : request.json["ID"],
-                "Title": request.json["Title"],
-                "Description": request.json["Description"],
-                "Status": request.json["Status"],
+                "ID" : data["ID"],
+                "Title": data["Title"],
+                "Description": data["Description"],
+                "Status": data["Status"],
             }
         )
 
@@ -61,8 +68,10 @@ def get_tasks():
 #funcion para hacer un filtro con el parametro status
 @app.route("/status_task", methods=["GET"])
 def status_task():
-    task_status = tasks_list
+    task_status = load_data()
+
     status_filter = request.args.get("Status")
+    
     if status_filter:
         task_status = list(
             filter(lambda show: show["Status"] == status_filter, task_status)
@@ -73,18 +82,30 @@ def status_task():
 #Funcion para modificar task ya registrado
 @app.route("/tasks/<task_id>", methods=["PATCH"])
 def patch_tasks(task_id):
+    if not request.is_json:
+            return jsonify(message="The Information must be JSON Format"),400
+
+    data = request.json
+
+    if not data:
+        return jsonify(message="No data provided"), 400
     
     for task in tasks_list:
         if task["ID"] == task_id:
-
-            data = request.json
 
             if "Title" in data:
                 task["Title"]= data["Title"]
             if "Description" in data:
                 task["Description"]= data["Description"]
             if "Status" in data:
-                task["Status"]= data["Status"]
+                valid_status = ["Pending", "In Progress", "Complete"]
+
+                if data["Status"] not in valid_status:
+                    return jsonify(
+                        message="Invalid Status. Allowed values: Pending, In Progress, Complete"
+                    ), 400
+
+                task["Status"] = data["Status"]
 
             save_data(tasks_list)
     
