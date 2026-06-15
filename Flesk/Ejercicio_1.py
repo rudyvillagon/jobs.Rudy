@@ -32,6 +32,12 @@ def tasks():
         for field in required_fields:
             if field not in data:
                 raise ValueError(f"{field} is missing from the information")
+            
+        if not data["Title"].strip():
+            raise ValueError("It must have a Title")
+        
+        if not data["Description"].strip():
+            raise ValueError("It must have a Description")
 
         valid_status = ["Pending", "In Progress", "Complete"]
 
@@ -44,18 +50,18 @@ def tasks():
             if task["ID"] == data["ID"]:
                 return jsonify(message="ID is already in Use"),400
             
-        tasks_list.append(
-            {
+        new_task = {
                 "ID" : data["ID"],
                 "Title": data["Title"],
                 "Description": data["Description"],
                 "Status": data["Status"],
             }
-        )
+        
+        tasks_list.append(new_task)
 
         save_data(tasks_list)
 
-        return jsonify(tasks_list), 201
+        return jsonify(message="Task created successfully", task=new_task), 201
     
     except ValueError as ex:
         return jsonify(message=str(ex)), 400
@@ -66,7 +72,7 @@ def get_tasks():
     return jsonify(load_data())
 
 #funcion para hacer un filtro con el parametro status
-@app.route("/status_task", methods=["GET"])
+@app.route("/tasks", methods=["GET"])
 def status_task():
     task_status = load_data()
 
@@ -82,6 +88,8 @@ def status_task():
 #Funcion para modificar task ya registrado
 @app.route("/tasks/<task_id>", methods=["PATCH"])
 def patch_tasks(task_id):
+    tasks_list = load_data()
+
     if not request.is_json:
             return jsonify(message="The Information must be JSON Format"),400
 
@@ -116,7 +124,8 @@ def patch_tasks(task_id):
 #Funcion para eliminar algun task 
 @app.route("/tasks/<task_id>", methods=["DELETE"])
 def del_task(task_id):
-    
+    tasks_list = load_data()
+
     for task in tasks_list:
         if task["ID"] == task_id:
             tasks_list.remove(task)
