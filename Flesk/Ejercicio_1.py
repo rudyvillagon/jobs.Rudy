@@ -20,7 +20,7 @@ tasks_list = load_data()
 # funcion para crear tasks 
 @app.route("/tasks", methods=["POST"])
 def tasks():
-    
+    tasks_list = load_data()
     try:
         if not request.is_json:
             return jsonify(message="The Information must be JSON Format"),400
@@ -66,24 +66,20 @@ def tasks():
     except ValueError as ex:
         return jsonify(message=str(ex)), 400
 
-#Funcion para que devuelva la lista
-@app.route("/tasks", methods=["GET"])
-def get_tasks():
-    return jsonify(load_data())
 
 #funcion para hacer un filtro con el parametro status
 @app.route("/tasks", methods=["GET"])
 def status_task():
-    task_status = load_data()
+    tasks = load_data()
 
     status_filter = request.args.get("Status")
     
     if status_filter:
-        task_status = list(
-            filter(lambda show: show["Status"] == status_filter, task_status)
+        tasks = list(
+            filter(lambda task: task["Status"] == status_filter,tasks
             )
-
-    return {"data": task_status}
+        )
+    return jsonify(tasks)
 
 #Funcion para modificar task ya registrado
 @app.route("/tasks/<task_id>", methods=["PATCH"])
