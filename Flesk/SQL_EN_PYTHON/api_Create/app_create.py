@@ -15,7 +15,10 @@ def add_user_api():
     try:
         users = AddUser(db)
 
-        users.add_user(request_body)
+        result = users.add_user(request_body)
+
+        if result is False:
+            return jsonify(message= "The email is already in use"),400
 
         return jsonify(message= "User has been Created"), 201
     finally:
@@ -50,9 +53,22 @@ def new_rent_car_api():
     try:
         new_rent = NewRental(db)
 
-        new_rent.new_rent_car(request_body)
+        result = new_rent.new_rent_car(request_body)
 
-        return jsonify(message= "New Rental added"), 201
+        if result == "user_not_exist":
+            return jsonify(message="The user does not exist."), 404
+        
+        if result == "user_not_active":
+            return jsonify(message="The user is not active."), 400
+        
+        if result == "The car_not_exist":
+            return jsonify(message="The car does not exist."), 404
+        
+        if result == "car_not_available":
+            return jsonify(message="the car is not available."), 409
+
+        else:
+            return jsonify(message= "New Rental added"), 201
     finally:
         db.close()
 

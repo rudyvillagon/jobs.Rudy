@@ -35,13 +35,13 @@ class NewRental:
                 result2 = result2[0]
 
             if result1 is None:
-                print("The User don't exist.")
+                return "user_not_exist"
             elif result1 != 1:
-                print("The User is not Active.")
+                return "user_not_active"
             elif result2 is None:
-                print("The Car don't exist.")
+                return "The car_not_exist"
             elif result2 != 1:
-                print("The Car is not Available.")
+                return "car_not_available"
             else:
                 cursor.execute(
                     "INSERT INTO lyfter_car_rental.Rentals (user_id, car_id, rental_status) values(%s, %s, %s);",
@@ -53,8 +53,7 @@ class NewRental:
                     )
 
                 self.connection.commit()
-                print("The car has been reserved.")
-                print("commited.")
+
         except Exception:
             self.connection.rollback()
             raise

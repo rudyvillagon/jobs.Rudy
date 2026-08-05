@@ -14,7 +14,7 @@ class SortRentals:
                 "id",
                 "user_id",
                 "car_id",
-                "rent__date",
+                "rent_date",
                 "rental_status",
             }
 

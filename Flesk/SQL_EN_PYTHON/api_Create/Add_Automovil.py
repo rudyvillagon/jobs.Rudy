@@ -16,10 +16,8 @@ class NewVehicle:
             cursor.execute(
                 "INSERT INTO lyfter_car_rental.Cars (brand, model, fabrication_year, car_status) values (%s, %s, %s, %s);", (brand, model, fabrication_year, car_status)
             )
-            print("Query execeted")
 
             self.connection.commit()
-            print("Successful Commit, Vehicle added")
 
         except Exception:
             self.connection.rollback()

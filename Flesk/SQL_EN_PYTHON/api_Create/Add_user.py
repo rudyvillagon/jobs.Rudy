@@ -28,7 +28,7 @@ class AddUser:
             result =  cursor.fetchone()
 
             if result is not None:
-                print("The email is already in Use.")
+                return False
 
             else:
 
@@ -37,8 +37,7 @@ class AddUser:
                 )
 
                 self.connection.commit()
-                print("Query executed")
-                print("Successful Commit, User added")
+                return True
 
         except Exception:
             self.connection.rollback()

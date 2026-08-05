@@ -21,7 +21,7 @@ class ChangeDefaulterUser:
             result = cursor.fetchone()
 
             if result is None:
-                print("The user has no rentals. ")
+                return "user_has_no_rentals"
             else:
                 cursor.execute(
                     "UPDATE lyfter_car_rental.Users SET user_status= %s WHERE id =%s",

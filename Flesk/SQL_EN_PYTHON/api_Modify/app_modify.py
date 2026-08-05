@@ -8,7 +8,7 @@ from api_Modify.Defaulter_user import ChangeDefaulterUser
 
 app = Flask(__name__)
 
-@app.route("/cars", methods=["PACTH"])
+@app.route("/cars", methods=["PATCH"])
 def change_status_car_api():
     request_body = request.json
 
@@ -17,15 +17,21 @@ def change_status_car_api():
     try:
         new_status_car = ChangeStatusCar(db)
 
-        new_status_car.change_car_status(request_body)
+        result = new_status_car.change_car_status(request_body)
 
-        return jsonify(message= "Status of the Car has been Change"), 201
+        if result == "car_not_found":
+            return jsonify(message="The car is not found."), 404
+        elif result == "car_already_has_that_status":
+            return jsonify(message="The has already that status."), 400
+
+        else:
+            return jsonify(message="Status of the Car has been Change"), 201
     finally:
         db.close()
 
 
 
-@app.route("/users", methods=["PACTH"])
+@app.route("/users", methods=["PATCH"])
 def change_status_user_api():
     request_body = request.json
 
@@ -34,9 +40,15 @@ def change_status_user_api():
     try:
         new_status_user = ChangeStatusUser(db)
 
-        new_status_user.change_user_status(request_body)
+        result = new_status_user.change_user_status(request_body)
 
-        return jsonify(message= "Status of the User has been Change"), 201
+        if result == "user_not_exist":
+            return jsonify(message="The user does not exist."), 404
+        elif result == "user_already_has_that_status":
+            return jsonify(message="The user already has that status."), 409
+
+        else:
+            return jsonify(message= "Status of the User has been Change"), 201
     finally:
         db.close()
 
@@ -51,9 +63,15 @@ def complet_car_return_api():
     try:
         return_car = CarReturn(db)
 
-        return_car.car_return(request_body)
+        result = return_car.car_return(request_body)
 
-        return jsonify(message= "The car has been returned"), 201
+        if result == "invoice_not_exist":
+            return jsonify(message="The invoice does not exist."), 404
+        elif result == "vehicle_already_returned":
+            return jsonify(message="the vehicle has already been returned."), 409
+
+        else:
+            return jsonify(message= "The car has been returned"), 201
     finally:
         db.close()
 
@@ -68,16 +86,22 @@ def disable_car_api():
     try:
         disable_c = ChangeCarStatusDisable(db)
 
-        disable_c.disable_car(request_body)
+        result = disable_c.disable_car(request_body)
 
-        return jsonify(message= "The car has been returned"), 201
+        if result == "car_not_exist":
+            return jsonify(message="The car is not found."), 404
+        elif result == "car_already_retired":
+            return jsonify(message="The car is already retired."), 409
+
+        else:
+            return jsonify(message= "The car has been returned"), 201
     finally:
         db.close()
 
 
 
-@app.route("/users/defaulter", methods=["PACTH"])
-def change_status_user_api():
+@app.route("/users/defaulter", methods=["PATCH"])
+def change_defaulter_user_api():
     request_body = request.json
 
     db = Database()
@@ -85,9 +109,13 @@ def change_status_user_api():
     try:
         defaulter_user = ChangeDefaulterUser(db)
 
-        defaulter_user.change_user_defaulter(request_body)
+        result = defaulter_user.change_user_defaulter(request_body)
 
-        return jsonify(message= "The user has been flagged as defaulter."), 201
+        if result == "user_has_no_rentals":
+            return jsonify(message="The user has no rentals."), 404
+
+        else:
+            return jsonify(message= "The user has been flagged as defaulter."), 201
     finally:
         db.close()
 

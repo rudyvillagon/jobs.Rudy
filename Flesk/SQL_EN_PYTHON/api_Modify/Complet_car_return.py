@@ -30,9 +30,9 @@ class CarReturn:
                 car_id= car_id[0]
 
             if result is None:
-                print("The invoice doesn't exist. ")
+                return "invoice_not_exist"
             elif result[0] == new_rental_status:
-                print("The vehicle has already been returned ")
+                return "vehicle_already_returned"
             else:
                 cursor.execute(
                     "UPDATE lyfter_car_rental.Rentals SET rental_status= %s WHERE id= %s",
@@ -42,10 +42,9 @@ class CarReturn:
                     "UPDATE lyfter_car_rental.cars SET car_status= %s WHERE id= %s",
                     (new_car_status, car_id)
                 )
-                print("The vehicle has been returned successfully." )
 
                 self.connection.commit()
-                print("commited.")
+
 
         finally:
             cursor.close()

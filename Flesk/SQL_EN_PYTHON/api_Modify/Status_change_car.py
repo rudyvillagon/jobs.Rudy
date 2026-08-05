@@ -11,26 +11,28 @@ class ChangeStatusCar:
 
         cursor = self.connection.cursor()
 
-        cursor.execute(
-            "SELECT car_status FROM lyfter_car_rental.Cars WHERE id =%s",
-            (id,)
-        )
-
-        result = cursor.fetchone()
-
-        if result is None:
-            print("the car don't exist.")
-        elif result[0] == New_status:
-            print("The car already has that status.")
-        else:
+        try:
             cursor.execute(
-                "UPDATE lyfter_car_rental.Cars SET car_status= %s WHERE id =%s",
-            (New_status, id)
+                "SELECT car_status FROM lyfter_car_rental.Cars WHERE id =%s",
+                (id,)
             )
-            print("Successfully updated Car")
 
-        self.connection.commit()
-        print("commited.")
+            result = cursor.fetchone()
 
-        cursor.close()
+            if result is None:
+                return "car_not_found"
+            elif result[0] == New_status:
+                return "car_already_has_that_status"
+            else:
+                cursor.execute(
+                    "UPDATE lyfter_car_rental.Cars SET car_status= %s WHERE id =%s",
+                (New_status, id)
+                )
+
+
+            self.connection.commit()
+            print("commited.")
+
+        finally:
+            cursor.close()
 

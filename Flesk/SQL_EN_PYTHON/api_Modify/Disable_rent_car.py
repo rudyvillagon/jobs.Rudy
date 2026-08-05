@@ -19,18 +19,17 @@ class ChangeCarStatusDisable:
             result = cursor.fetchone()
 
             if result is None:
-                print("The car doesn't exist. ")
+                return "car_not_exist"
             elif result[0] == disable_car_status:
-                print("The car has already been retired. ")
+                return "car_already_retired"
             else:
                 cursor.execute(
                     "UPDATE lyfter_car_rental.cars SET car_status= %s WHERE id= %s",
                     (disable_car_status, car_id)
                 )
-                print("The car has been retired.")
 
                 self.connection.commit()
-                print("commited.")
+                
         finally:
             cursor.close()
             print("Cursor closed.")
