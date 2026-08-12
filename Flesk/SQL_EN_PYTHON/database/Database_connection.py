@@ -11,7 +11,7 @@ class Database:
             dbname="car_rental"
         )
 
-        print("DataBASE Established Connection")
+
 
     def close(self):
         self.connection.close()
