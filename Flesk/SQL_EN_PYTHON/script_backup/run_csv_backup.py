@@ -6,6 +6,7 @@ class RunCsvBackup:
 
     def __init__(self, database):
                 self.database = database
+                self.connection = database.connection
 
     def run_csv_creator(self):
 
@@ -22,15 +23,16 @@ class RunCsvBackup:
                 CCF.create_csv("rentals",rentals_columns, rentals)
 
             except Exception:
-                            self.connection.rollback()
-                            raise
+                    self.connection.rollback()
+                    raise
             
             return "CSV Complete, you have backup your data."
 
-db = Database()
+if __name__ == "__main__":
+    db = Database()
 
-RCB = RunCsvBackup(db)
+    RCB = RunCsvBackup(db)
 
-print(RCB.run_csv_creator())
+    print(RCB.run_csv_creator())
 
-db.close()
+    db.close()

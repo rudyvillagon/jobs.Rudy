@@ -37,9 +37,28 @@ class FakerInyect:
                 fake.add_provider(VehicleProvider)
                 try:
                     for _ in range(100):
-                            brand = fake.random_int(min=1, max=10)
-                            model = fake.vehicle_model()
-                            fabrication_year = fake.vehicle_year()
+                            vehicle = fake.vehicle_object()
+
+                            brand_name = vehicle["Make"]
+                            model = vehicle["Model"]
+                            fabrication_year = vehicle["Year"]
+
+                            cursor.execute(
+                                """
+                                SELECT id
+                                FROM lyfter_car_rental.Brands_cars
+                                WHERE brand_name = %s
+                                """,
+                                (brand_name,)
+                            )
+
+                            result = cursor.fetchone()
+
+                            if result is None:
+                                continue
+
+                            brand = result[0]
+
                             car_status = fake.random_int(min=1, max=8)
     
                             cursor.execute(

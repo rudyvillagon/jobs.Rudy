@@ -10,20 +10,21 @@ class ValidationHealthScript:
 
     def check_good_connections(self):
             check_conne = CheckConnection(self)
-            if not check_conne.check_good_connecion:
-                return "DB ERROR. No cars available"
+            if not check_conne.check_good_connecion():
+                return "DB ERROR. No cars available1"
             check_file = CheckFilesConnection(self)
-            if not check_file.check_files_exist:
-                return "DB ERROR. No cars available"
+            if not check_file.check_files_exist():
+                return "DB ERROR. No cars available2"
             check_car = CheckCarsAvailable(self)
-            if not check_car.check_cars:
-                return "DB ERROR. No cars available"
+            if not check_car.check_cars():
+                return "DB ERROR. No cars available3"
             return "DB OK. Operating system is functioning normally"
 
-db = Database()
+if __name__ == "__main__":
+    db = Database()
 
-VHS = ValidationHealthScript
-result = VHS.check_good_connections(db)
-print(result)
+    VHS = ValidationHealthScript
+    result = VHS.check_good_connections(db)
+    print(result)
 
-db.close()
+    db.close()

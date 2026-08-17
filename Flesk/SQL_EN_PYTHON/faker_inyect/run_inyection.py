@@ -5,6 +5,7 @@ class RunFakeInyection:
 
     def __init__(self, database):
                 self.database = database
+                self.connection= database.connection
 
     def run_faker(self):
             fake_intection_files = FakerInyect(self.database)
@@ -15,16 +16,17 @@ class RunFakeInyection:
                 fake_intection_files.inyect_rentals()
 
             except Exception:
-                            self.connection.rollback()
-                            raise
+                    self.connection.rollback()
+                    raise
 
             return "Faker Complete, you have inyected data."
 
-db = Database()
+if __name__ == "__main__":
+    db = Database()
 
-RFI = RunFakeInyection(db)
+    RFI = RunFakeInyection(db)
 
-print(RFI.run_faker())
+    print(RFI.run_faker())
 
-db.close()
+    db.close()
             
