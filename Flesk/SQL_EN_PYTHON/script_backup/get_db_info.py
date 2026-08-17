@@ -1,6 +1,4 @@
-from database.Database_connection import Database
-
-class make_csv_archive:
+class MakeCsvArchive:
 
     def __init__(self, database):
         self.connection = database.connection
@@ -44,14 +42,3 @@ class make_csv_archive:
         
         return columns, data
 
-database = Database()
-
-archive = make_csv_archive(database)
-
-users = archive.get_db_users()
-cars =  archive.get_db_cars()
-rentals = archive.get_db_rentals()
-
-print(users)
-
-database.close()

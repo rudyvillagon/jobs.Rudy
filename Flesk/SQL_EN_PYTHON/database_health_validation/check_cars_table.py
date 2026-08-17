@@ -1,4 +1,4 @@
-from database.Database_connection import Database
+
 
 class CheckCarsAvailable:
 
@@ -9,21 +9,14 @@ class CheckCarsAvailable:
         cursor = self.connection.cursor()
 
         try:
-            cursor.execute("""SELECT EXISTS (SELECT 1 FROM lyfter_car_rental.cars
+            cursor.execute("""SELECT EXISTS (SELECT 1 FROM lyfter_car_rental.Cars
                     WHERE car_status = 1)""")
             result = cursor.fetchone()
 
             if result == (True,):
-                print("The table has at least one car available. ")
+                return True
             else:
-                print("there are no cars available.")
+                return False
         finally:
             cursor.close()
 
-db = Database()
-
-check = CheckCarsAvailable(db)
-
-check.check_cars()
-
-db.close()

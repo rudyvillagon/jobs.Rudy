@@ -1,4 +1,4 @@
-from database.Database_connection import Database
+
 
 class CheckConnection:
 
@@ -14,14 +14,9 @@ class CheckConnection:
             result = cursor.fetchone()
 
             if result == (1,):
-                print("DB is working correctly")
+                return True
             else:
-                print("DB ERROR, Theres no data")
+                return False
 
         finally:
             cursor.close()
-
-db = Database()
-check = CheckConnection(db)
-check.check_good_connecion()
-db.close()

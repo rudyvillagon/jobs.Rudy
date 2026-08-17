@@ -1,4 +1,4 @@
-from database.Database_connection import Database
+
 
 class CheckFilesConnection:
 
@@ -18,18 +18,12 @@ class CheckFilesConnection:
 
 
             if result == (True,):
-                print(f"The {table} table works correctly.")
+                continue
             else:
-                print(f"The {table} table works correctly.")
-
-
+                return False
 
         cursor.close()
-
-db = Database()
-check = CheckFilesConnection(db)
-check.check_files_exist()
-db.close()
+        return True
 
 
 

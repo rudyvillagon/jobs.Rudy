@@ -28,6 +28,9 @@ class FakerInyect:
                 self.connection.rollback()
                 raise
 
+            finally:
+                cursor.close()
+
     def inyect_cars(self):
                 cursor = self.connection.cursor()
                 fake = Faker()
@@ -48,6 +51,9 @@ class FakerInyect:
                     self.connection.rollback()
                     raise
 
+                finally:
+                    cursor.close()
+
     def inyect_rentals(self):
                 cursor = self.connection.cursor()
                 fake = Faker()
@@ -67,11 +73,9 @@ class FakerInyect:
                     self.connection.rollback()
                     raise
 
-db = Database()
-faker = FakerInyect(db)
-faker.inyect_users()
-faker.inyect_cars()
-faker.inyect_rentals()
-db.close()
+                finally:
+                    cursor.close()
+
+
 
 
