@@ -5,7 +5,7 @@ class CheckConnection:
     def __init__(self, database):
             self.connection = database.connection
 
-    def check_good_connecion(self):
+    def check_good_connection(self):
         cursor = self.connection.cursor()
 
         try:

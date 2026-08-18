@@ -36,7 +36,10 @@ class FakerInyect:
                 fake = Faker()
                 fake.add_provider(VehicleProvider)
                 try:
-                    for _ in range(100):
+                    car_inyector = 0
+
+                    while car_inyector < 100:
+                            
                             vehicle = fake.vehicle_object()
 
                             brand_name = vehicle["Make"]
@@ -64,6 +67,9 @@ class FakerInyect:
                             cursor.execute(
                                 "INSERT INTO lyfter_car_rental.Cars (brand, model, fabrication_year, car_status) values (%s, %s, %s, %s)ON CONFLICT DO NOTHING;", (brand, model, fabrication_year, car_status)
                             )
+
+                            car_inyector+= 1
+                            
                     self.connection.commit()
     
                 except Exception:
