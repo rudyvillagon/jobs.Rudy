@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="Registration.js" defer></script>
+        <link href="Registration.css" rel="stylesheet"/>
+    </head>
+    <Body>
+        <figure class="Top_icon">
+            <h1 id="Main_header">Register here</h1>
+            <img src="https://i.ibb.co/7xJYnjgk/medios-de-comunicacion-1.png" class="ImgRegister" width= 20% height=100%>
+        </figure>    
+        <div id="subtitle">Enter the information required</div>
+        <br />
+        <div class="inputs">
+            <label for="Full_name">Name</label>
+            <input type="text" class="inputReg" id="Full_name" placeholder="Full Name">
+            <label for="Email">Email</label>
+            <input type="text" class="inputReg" id="Email" placeholder="Email">
+            <label for="Password">Password</label>
+            <div>
+                <input  type="password" class="inputReg" id="password" placeholder="Password">
+                <button  type="button" onclick="togglePassword()" id="Show_botton">Show</button>
+            </div>
+            <label for="Password">Confirm Password</label>
+            <div>
+                <input type="password" class="inputReg" id="Conf_password" placeholder="Confirm Password">
+                <button type="button" onclick="toggleConfPassword()" id="Show_botton">Show</button>
+            </div>
+            <label for="User_address" >Address</label>
+            <input type="text" class="inputReg" id="User_address" placeholder="Address">
+        </div>
+        <button class="buttonCreateAccount" type="button" id="Create_account_botton">Create Account</button>
+    </Body>
+</html>
+

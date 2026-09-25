@@ -1,0 +1,31 @@
+1. Inicio
+
+ 2. Definir `Precio_producto`
+
+ 3. Definir `Descuento` 
+
+ 4. Definir `Precio_final`
+
+ 5. Mostrar “Ingrese precio del producto¨
+
+ 6. Pedir `Precio_producto`
+
+ 7.  Si el (`Precio_producto` < 100) entonces
+
+             i. `Descuento` == (`Precio_producto` * 0.2 ) 
+
+ 8.  Sino :
+
+      a. (`precio_producto` >100) entonces
+
+             ii. `Descuento` == (`Precio_producto` * 0.10 ) 
+
+ 9. FinSi
+
+10. `Precio_final` = `Precio_producto` - `Descuento` 
+
+ 11. Mostrar “El Precio final con descuento es de¨
+
+ 12. Mostrar `Precio_final` 
+
+ 13. Fin

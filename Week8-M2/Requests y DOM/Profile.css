@@ -1,0 +1,55 @@
+html {
+    background-color: rgb(115, 211, 211);
+    font-family: "Lucida Bright",serif;
+}
+
+body {
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    width: 40rem;
+    height: 45rem;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+input[type="submit"] {
+    width: 6rem;
+    height: 2rem;
+    cursor: pointer;
+    color: azure;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: rgb(44, 95, 95);
+    border: 0;
+    margin-top: 1rem;
+    margin-left: 33rem;
+    border-radius: 2em;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.photos_cards_profile {
+    border: 5px solid rgb(115, 211, 211);
+}
+
+#top_header_user {
+    color: rgb(44, 95, 95);
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-left: 2.5rem;
+    margin-top: 0rem;
+}
+
+.information {
+    padding-left: 1rem;
+    width: 35rem;
+    height: 10rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-left: 2.5rem;
+    background-color: rgb(115, 211, 211);
+}

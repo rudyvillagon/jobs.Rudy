@@ -1,0 +1,41 @@
+<html>
+    <div id="container">
+        <input id="userMemberCode" placeholder="User Code*">
+        <button onclick="userSummit()" id="sendInfoButton">Search Info</button>
+        <div id="userInfoContainer"></div>
+    </div>
+
+
+<script>
+
+    const post = document.getElementById("userInfoContainer")
+
+    async function userSummit() {
+
+        const userInfoCode = document.getElementById("userMemberCode").value
+
+        try {
+            const users= await fetch(`https://reqres.in/api/users/${userInfoCode}`,{
+            headers: { 'x-api-key': 'reqres_abeaeae3a6e344d48bd4473a9ade0746' }
+        });
+
+            if (!users.ok){
+                post.innerHTML=`
+                <p>No se encontro ninguna Información ❌</p>`
+        ;
+                return;
+            }
+            const data = await users.json();
+            const user = data.data;
+            post.innerHTML=`
+            <p>Name:${user.first_name}</p>
+            <p>Last Name:${user.last_name}</p>
+            <p>Email:${user.email}</p>`;
+                } catch (error) {
+        post.innerHTML=`
+        <p>Hay un Error en el proceso</p>`;
+    }
+    
+}
+</script>
+</html>

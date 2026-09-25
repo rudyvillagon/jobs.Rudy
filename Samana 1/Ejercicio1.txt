@@ -1,0 +1,97 @@
+
+💪🏽 Ejercicios
+
+1. Cree un algoritmo para ver un video en Youtube. Sea lo más especifico posible.
+
+    1. Inicio
+
+    2. Abrimos la Aplicación o el Navegador.
+
+           [i.](http://i.si) Si usamos un navegador:
+
+               a. Ingresamos en www.youtube.com.
+
+           ii. Sino:
+
+               a. Abrir la aplicación con el nombre Youtube en nuestro dispositivo inteligente 
+
+     3. En la barra de búsqueda escribimos el tema de deseado de ver el video .
+
+     4. Mientras encontremos  el video que queremos ver entre todos los resultados. 
+
+            i. Si lo encontramos: 
+
+               a. le damos doble click a la imagen del video para que empiece la reproducción .
+
+           ii. Sino:
+
+               a. realizamos una búsqueda mas avanzada o cambiando de términos usados        hasta llegar al video deseado dando click sobre el para empezar la reproducción.
+
+     5. Fin.
+
+1. Cree un algoritmo que describa su rutina diaria. Use condiciones, condiciones multiples y ciclos.
+
+      1. Inicio.
+
+      2. Abro los ojos 
+
+      3. Me levanto de la cama
+
+      4. Abro la puerta de mi casa para salga mi perra 
+
+      5. Me dirijo al baño
+
+      6. Después de hacer mis necesidades en el baño me dirijo a la cocina para realizar café
+
+      7. Tomo café
+
+      8. Empiezo a entrenar en mi bicicleta 
+
+      9. Después empiezo a hacer ejercicios funcionales 
+
+     10. Si hay almuerzo
+
+            i. Me pongo a almorzar
+
+           Sino:
+
+           ii. Me pongo a hacerlo para luego almorzar
+
+     11. seguido me tomo una siesta de descanso 
+
+     12. Me pongo a estudiar
+
+     13. Tomo café de la tarde
+
+     14. Me alisto para ir a entrenar natación
+
+            i. Si esta haciendo frio.
+
+                  a. me pongo abrigo y buzo
+
+            sino:
+
+            [ii.](http://ii.me) Me pongo algo mas fresco 
+
+                  a. Como Shorts y una camiseta
+
+    15. Voy a entrenar natación
+
+    16. llego a mi casa
+
+    17. Mientras me como una merienda
+
+           i. Si hay algo interesante en la televisión 
+
+                 a. Lo veo hasta terminar de comer
+
+          ii. Sino me pongo a escuchar música
+
+                 a. En el celular o ya sea en la televisión
+
+   18. Me lavo los dientes
+
+   19. Me acuesto en mi cama para dormir  
+
+   20. Fin.
+

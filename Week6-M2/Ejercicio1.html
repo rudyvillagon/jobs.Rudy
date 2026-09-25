@@ -1,0 +1,32 @@
+<html>
+    <body>
+        <button id="add_to_list">Click to Add</button>
+        <button id="remove_all">Click to remove all</button>
+        <ul>
+            <li id="list"></li>
+        </ul>
+    </body>
+</html>
+
+<script>
+    const buttonAdd = document.getElementById("add_to_list")
+
+    const addItem = () => {
+        const item = document.createElement("li")
+        item.innerHTML = "User Example"
+        const list = document.getElementById("list")
+        list.appendChild(item)
+    }
+
+    const buttonRev = document.getElementById("remove_all")
+    
+    const revAllItems = () => {
+        const list = document.getElementById("list")
+        list.innerHTML = ""
+    }
+
+
+    buttonAdd.addEventListener("click", addItem)
+    buttonRev.addEventListener("click", revAllItems)
+
+</script>

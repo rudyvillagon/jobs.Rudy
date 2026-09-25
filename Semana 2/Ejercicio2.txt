@@ -1,0 +1,27 @@
+1. Inicio
+
+ 2. Definir `Tiempo_de_usuario` 
+
+ 3. Definir `10_minutos` 
+
+ 4. Mostrar ¨Ingrese tiempo en segundos¨
+
+ 5. Pedir `Tiempo_de_usuario` 
+
+ 6. `10_minutos` = 600
+
+ 7. Si `Tiempo_de_usuario`  < `10_minutos` entonces:
+
+             a. Mostrar “Faltan (`10_minutos` - `Tiempo_de_usuario` ) Seg para 10 min”
+
+ 8. Sino: 
+
+      a. Si `Tiempo_de_usuario` >`10_minutos`  entonces:
+
+ 9.         i. Mostrar “Mayor”
+
+    b. Sino `Tiempo_de_usuario` == `10_minutos`  entonces: 
+
+10.        ii. Mostrar “Igual”
+
+11. Fin

@@ -1,0 +1,70 @@
+html {
+    background-color: rgb(115, 211, 211);
+    font-family: "Lucida Bright",serif;
+    
+}
+
+body {
+    background-color: azure;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+    height: 40rem;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+#Top_header {
+    font-size: 3rem;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 900;
+    color: rgb(44, 95, 95);
+    margin-top: -20rem;
+}
+
+#subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(44, 95, 95);
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputLogin {
+    width: 22rem;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+#Show_botton {
+    width: 4rem;
+    height: 3.2rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    color: azure;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: rgb(58, 128, 128);
+    border: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.lowerButtons {
+    width: 10rem;
+    height: 3rem;
+    cursor: pointer;
+    color: azure;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: rgb(58, 128, 128);
+    border: 0;
+    margin-top: 2rem;
+    border-radius: 2em;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}

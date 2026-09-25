@@ -1,0 +1,37 @@
+body {
+    font-family: "Aptos Black", sans-serif;
+    background-color: rgb(207, 206, 206);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.container_cards_animals {
+    background-color: #e7e5e5ff;
+    width: 90%;
+    height: 90%;
+    margin: 1.5em;
+    box-shadow: 0px 3px 6px
+}
+
+.photos_cards_show_animals {
+    width: 85%;
+    height: auto;
+    margin-left: 7%;
+    margin-top: 6%
+}
+
+.animals_main_title {
+    font-weight: 600;
+    margin-top: 3%;
+    margin-left: 7%;
+    margin-bottom: 2%;
+}
+
+.content_p_animals {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 1%;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-bottom: 9%;  
+}
