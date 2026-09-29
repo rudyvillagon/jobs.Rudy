@@ -1,4 +1,4 @@
-from sqlalchemy import insert, update, delete
+from sqlalchemy import insert, update, delete, select
 from Create_db_tables import address
 
 class AddressManagement:
@@ -6,9 +6,9 @@ class AddressManagement:
     def __init__(self, engine):
         self.engine = engine
 
-    def create_address(self, user_id, Full_address):
+    def create_address(self, User_id, Full_address):
         try:
-            query = insert(address).values(User_id = user_id, full_address = Full_address)
+            query = insert(address).values(user_id = User_id, full_address = Full_address)
             with self.engine.connect() as conn:
                 result = conn.execute(query)
                 conn.commit()
@@ -36,7 +36,7 @@ class AddressManagement:
     def dele_address(self, address_id):
         try:
             query = delete(address).where(address.c.id == address_id)
-            with self.engine.connec() as conn:
+            with self.engine.connect() as conn:
                 result = conn.execute(query)
                 conn.commit()
 
@@ -47,3 +47,20 @@ class AddressManagement:
         
         except Exception as e:
             return f"Database_error: {e}"
+
+    def Select_all_Addresses(self):
+
+        try:
+
+            query = select(address)
+
+            with self.engine.connect() as conn:
+
+                result = conn.execute(query).fetchall()
+
+                for row in result:
+
+                    print(row)
+
+        except Exception as e:
+            print("Databse_error", e) 

@@ -11,8 +11,8 @@ address = Table(
     Column("full_address", String(80), nullable=False),
 )
 
-automoviles = Table(
-    "Automoviles",
+cars = Table(
+    "Cars",
     metadata_obj,
     Column("id", Integer, primary_key=True),
     Column("User_id", Integer, ForeignKey("Users.id"), nullable=True),

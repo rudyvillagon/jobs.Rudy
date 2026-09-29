@@ -1,5 +1,5 @@
 from Connection_DB import MakeConectionDb
-from join_user_with_car import JoinCarsWithUsers
+from cars_management import CarManagement
 
 
 def main():
@@ -8,7 +8,7 @@ def main():
     
     database.connect()
 
-    Join_query = JoinCarsWithUsers(database.engine)
+    Join_query = CarManagement(database.engine)
 
     result = Join_query.join_both(1, 1)
     

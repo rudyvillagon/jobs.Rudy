@@ -1,5 +1,5 @@
 from Connection_DB import MakeConectionDb
-from select_all_address import SelectAllAddresses
+from address_management import AddressManagement
 
 def main():
 
@@ -7,7 +7,7 @@ def main():
             
     database.connect()
         
-    all_addresses = SelectAllAddresses(database.engine)
+    all_addresses = AddressManagement(database.engine)
 
     all_addresses.Select_all_Addresses()
 

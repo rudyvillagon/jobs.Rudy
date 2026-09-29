@@ -1,5 +1,5 @@
 from Connection_DB import MakeConectionDb
-from automoviles_management import AutomovileManagement
+from ORMs.cars_management import CarManagement
 
 def main():
 
@@ -7,23 +7,24 @@ def main():
     
     database.connect()
 
-    automovile_manage = AutomovileManagement(database.engine)
+    car_manage = CarManagement(database.engine)
 
+    User_id = 1
     Brand = "Toyota"
     Model = "Yaris"
     Year = 2011
     License_plate = "fgd543"
 
-    result_1 = automovile_manage.create_automovile(Brand, Model, Year, License_plate)
+    result_1 = car_manage.create_car(User_id, Brand, Model, Year, License_plate)
 
-    automovile_id = 1
+    car_id = 1
     modified_year = 2010
 
-    result_2 = automovile_manage.modifi_automovile(automovile_id, modified_year)
+    result_2 = car_manage.modifi_car(car_id, modified_year)
 
     deled_id = 1
 
-    result_3 = automovile_manage.dele_automovile(deled_id)
+    result_3 = car_manage.dele_car(deled_id)
 
     print(result_1)
 

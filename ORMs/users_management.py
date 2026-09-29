@@ -1,4 +1,4 @@
-from sqlalchemy import insert, update, delete
+from sqlalchemy import insert, update, delete, select
 from Create_db_tables import users_table
 
 class UsersManagement:
@@ -47,3 +47,22 @@ class UsersManagement:
 
         except Exception as e:
             return f"Database_error: {e}"
+
+    def Select_all_users(self):
+
+        try:
+
+            query = select(users_table)
+
+            with self.engine.connect() as conn:
+        
+                result = conn.execute(query).fetchall()
+
+                for row in result:
+
+                    print(row)
+
+        except Exception as e:
+            print("Databse_error", e)
+
+    

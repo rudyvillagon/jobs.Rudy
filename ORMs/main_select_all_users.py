@@ -1,5 +1,5 @@
 from Connection_DB import MakeConectionDb
-from select_all_users import SelectAllUsers
+from users_management import UsersManagement
 
 def main():
 
@@ -7,7 +7,7 @@ def main():
         
     database.connect()
     
-    all_users = SelectAllUsers(database.engine)
+    all_users = UsersManagement(database.engine)
 
     all_users.Select_all_users()
 

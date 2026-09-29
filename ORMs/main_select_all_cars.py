@@ -1,5 +1,5 @@
 from Connection_DB import MakeConectionDb
-from select_all_automoviles import SelectAllAutomoviles
+from cars_management import CarManagement
 
 def main():
 
@@ -7,9 +7,9 @@ def main():
         
     database.connect()
 
-    all_automoviles = SelectAllAutomoviles(database.engine)
+    all_cars = CarManagement(database.engine)
 
-    all_automoviles.Select_all_Automoviles()
+    all_cars.Select_all_cars()
 
 if __name__ == "__main__":
     main()
