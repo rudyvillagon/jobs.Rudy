@@ -9,7 +9,7 @@ def main():
         
     all_addresses = AddressManagement(database.engine)
 
-    all_addresses.Select_all_Addresses()
+    all_addresses.select_all_addresses()
 
 if __name__ == "__main__":
     main()

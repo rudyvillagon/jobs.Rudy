@@ -9,10 +9,12 @@ class ValidateTablesExist:
 
     def check_tables_exist(self):
 
-        tables = ["Address","Automoviles","Users"]
+        tables = ["Address","Cars","Users"]
 
         try:
             inspector = inspect(self.engine)
+
+            missing_tables = []
 
             for table in tables:
 
@@ -20,10 +22,16 @@ class ValidateTablesExist:
                     table,
                     schema="cars_inventory"
                 ):
-                    print(f"The Table {table} do not exist.")
-                    print("Creating missing tables...")
-                    metadata_obj.create_all(self.engine)
-                    return "The tables are all good."
+                    missing_tables.append(table)
+
+            if missing_tables:
+
+                print(f"Missing tables: {missing_tables}")
+                print("Creating missing tables...")
+
+                metadata_obj.create_all(self.engine)
+
+                return "Missing tables created successfully."
                 
             return "The tables are all good."
 

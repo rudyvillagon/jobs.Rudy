@@ -15,7 +15,7 @@ cars = Table(
     "Cars",
     metadata_obj,
     Column("id", Integer, primary_key=True),
-    Column("User_id", Integer, ForeignKey("Users.id"), nullable=True),
+    Column("user_id", Integer, ForeignKey("Users.id"), nullable=True),
     Column("brand", String(30), nullable=False),
     Column("model", String(30), nullable=False),
     Column("year", Integer, nullable=False),

@@ -48,7 +48,7 @@ class AddressManagement:
         except Exception as e:
             return f"Database_error: {e}"
 
-    def Select_all_Addresses(self):
+    def select_all_addresses(self):
 
         try:
 

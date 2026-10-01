@@ -9,7 +9,7 @@ def main():
 
     all_cars = CarManagement(database.engine)
 
-    all_cars.Select_all_cars()
+    all_cars.select_all_cars()
 
 if __name__ == "__main__":
     main()

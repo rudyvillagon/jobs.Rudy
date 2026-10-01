@@ -48,7 +48,7 @@ class UsersManagement:
         except Exception as e:
             return f"Database_error: {e}"
 
-    def Select_all_users(self):
+    def select_all_users(self):
 
         try:
 

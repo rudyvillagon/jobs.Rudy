@@ -6,9 +6,9 @@ class CarManagement:
     def __init__(self, engine):
         self.engine = engine
 
-    def create_car(self, User_id, Brand, Model, Year, License_plate):
+    def create_car(self, user_id_input, brand_input, model_input, year_input, license_plate_input):
         try:
-            query = insert(cars).values(user_id = User_id, brand = Brand, model = Model, year = Year, license_plate = License_plate)
+            query = insert(cars).values(user_id = user_id_input, brand = brand_input, model = model_input, year = year_input, license_plate = license_plate_input)
             with self.engine.connect() as conn:
                 result = conn.execute(query)
                 conn.commit()
@@ -50,7 +50,7 @@ class CarManagement:
 
 
     
-    def Select_all_cars(self):
+    def select_all_cars(self):
     
         try:
     
