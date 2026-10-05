@@ -8,9 +8,13 @@ def main():
     
     database.connect()
 
-    Join_query = CarManagement(database.engine)
+    join_query = CarManagement(database.engine)
 
-    result = Join_query.join_both(1, 1)
+    car_id =  join_query.get_car_id_by_license_plate("fgd543")
+
+    user_id = join_query.get_user_id_by_email("MarcoR1999@gmail.com")
+
+    result = join_query.join_both(car_id, user_id)
     
     print(result)
 

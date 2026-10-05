@@ -1,4 +1,4 @@
-from sqlalchemy import inspect
+from sqlalchemy import inspect, text
 from Create_db_tables import metadata_obj
 
 
@@ -12,6 +12,12 @@ class ValidateTablesExist:
         tables = ["Address","Cars","Users"]
 
         try:
+
+            with self.engine.begin() as conn: 
+                conn.execute( 
+                    text("CREATE SCHEMA IF NOT EXISTS cars_inventory")
+                    )
+                
             inspector = inspect(self.engine)
 
             missing_tables = []

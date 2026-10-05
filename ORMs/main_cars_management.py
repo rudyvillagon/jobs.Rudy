@@ -17,18 +17,19 @@ def main():
 
     result_1 = car_manage.create_car(user_id_input, brand_input, model_input, year_input, license_plate_input)
 
-    car_id = 1
+    print(f"The new car Id is {result_1}")
+
+    car_id = result_1
+
     modified_year = 2010
 
     result_2 = car_manage.modifi_car(car_id, modified_year)
 
-    deled_id = 1
-
-    result_3 = car_manage.dele_car(deled_id)
-
-    print(result_1)
+    deled_id = car_id
 
     print(result_2)
+
+    result_3 = car_manage.dele_car(deled_id)
 
     print(result_3)
 

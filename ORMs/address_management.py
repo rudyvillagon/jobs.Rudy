@@ -6,14 +6,16 @@ class AddressManagement:
     def __init__(self, engine):
         self.engine = engine
 
-    def create_address(self, User_id, Full_address):
+    def create_address(self, user_id_input, full_address_input):
         try:
-            query = insert(address).values(user_id = User_id, full_address = Full_address)
+            query = (insert(address).values(user_id = user_id_input, full_address = full_address_input).returning(address.c.id))
             with self.engine.connect() as conn:
                 result = conn.execute(query)
                 conn.commit()
 
-                return "Address_created"
+                address_id = result.scalar_one()
+
+                return address_id
 
         except Exception as e:
             return f"Database_error: {e}"

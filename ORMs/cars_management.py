@@ -8,12 +8,14 @@ class CarManagement:
 
     def create_car(self, user_id_input, brand_input, model_input, year_input, license_plate_input):
         try:
-            query = insert(cars).values(user_id = user_id_input, brand = brand_input, model = model_input, year = year_input, license_plate = license_plate_input)
+            query = (insert(cars).values(user_id = user_id_input, brand = brand_input, model = model_input, year = year_input, license_plate = license_plate_input).returning(cars.c.id))
             with self.engine.connect() as conn:
                 result = conn.execute(query)
                 conn.commit()
 
-                return "Car_regist_created."
+                car_id = result.scalar_one()
+
+                return car_id
 
         except Exception as e:
             return f"Database_error: {e}"
@@ -67,13 +69,13 @@ class CarManagement:
         except Exception as e:
             print("Databse_error", e)  
 
-    def join_both(self,car_id, user_id):
+    def join_both(self,input_car_id, input_user_id):
 
         try:
 
         
-            query = select(cars.c.User_id).where(
-                cars.c.id == car_id
+            query = select(cars.c.user_id).where(
+                cars.c.id == input_car_id
             )
             with self.engine.connect() as conn:
 
@@ -88,7 +90,7 @@ class CarManagement:
                 if automovile_user is not None:
                     return "Car_already_link_with_a_user"
         
-                update_user_car = update(cars).where(cars.c.id == car_id).values(User_id = user_id)
+                update_user_car = update(cars).where(cars.c.id == input_car_id).values(user_id = input_user_id)
         
                 conn.execute(update_user_car)
                 conn.commit()

@@ -6,21 +6,23 @@ class UsersManagement:
     def __init__(self, engine):
         self.engine = engine
 
-    def create_user(self ,User_name ,Full_name ,Email):
+    def create_user(self ,user_name_input ,full_name_input ,email_input):
         try:
-            query = insert(users_table).values(user_name= User_name, full_name= Full_name, email= Email)
+            query = (insert(users_table).values(user_name= user_name_input, full_name= full_name_input, email= email_input).returning(users_table.c.id))
             with self.engine.connect() as conn:
                 result = conn.execute(query)
                 conn.commit()
 
-                return "User_regist_created."
+                user_id = result.scalar_one()
+
+                return user_id
 
         except Exception as e:
             return f"Database_error: {e}"
 
-    def modify_user(self ,User_id ,Mod_user_name):
+    def modify_user(self ,user_id_input ,Mod_user_name):
         try:
-            query = update(users_table).where(users_table.c.id == User_id).values(user_name= Mod_user_name)
+            query = update(users_table).where(users_table.c.id == user_id_input).values(user_name= Mod_user_name)
             with self.engine.connect() as conn:
                 result = conn.execute(query)
                 conn.commit()
