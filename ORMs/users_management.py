@@ -20,9 +20,9 @@ class UsersManagement:
         except Exception as e:
             return f"Database_error: {e}"
 
-    def modify_user(self ,user_id_input ,Mod_user_name):
+    def modify_user(self ,user_id_input ,mod_user_name):
         try:
-            query = update(users_table).where(users_table.c.id == user_id_input).values(user_name= Mod_user_name)
+            query = update(users_table).where(users_table.c.id == user_id_input).values(user_name= mod_user_name)
             with self.engine.connect() as conn:
                 result = conn.execute(query)
                 conn.commit()

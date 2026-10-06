@@ -19,9 +19,9 @@ def main():
 
     user_id_input = result_1
 
-    Mod_user_name = "MarcRo11"
+    mod_user_name = "MarcRo11"
 
-    result_2 = user_manage.modify_user(user_id_input, Mod_user_name)
+    result_2 = user_manage.modify_user(user_id_input, mod_user_name)
 
     deled_user_id = user_id_input
 

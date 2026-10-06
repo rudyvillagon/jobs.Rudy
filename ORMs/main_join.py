@@ -10,11 +10,11 @@ def main():
 
     join_query = CarManagement(database.engine)
 
-    car_id =  join_query.get_car_id_by_license_plate("fgd543")
+    input_car_id =  1
 
-    user_id = join_query.get_user_id_by_email("MarcoR1999@gmail.com")
+    input_user_id = 1
 
-    result = join_query.join_both(car_id, user_id)
+    result = join_query.join_both(input_car_id, input_user_id)
     
     print(result)
 
