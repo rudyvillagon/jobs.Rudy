@@ -11,5 +11,9 @@ def main():
 
     all_addresses.select_all_addresses()
 
+    specific_word= "Calle"
+
+    all_addresses.select_all_address_with_specific_word(specific_word)
+
 if __name__ == "__main__":
     main()
