@@ -11,5 +11,7 @@ def main():
 
     all_cars.select_all_cars()
 
+    all_cars.select_all_car_not_associated()
+
 if __name__ == "__main__":
     main()

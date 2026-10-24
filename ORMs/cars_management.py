@@ -69,6 +69,24 @@ class CarManagement:
         except Exception as e:
             print("Databse_error", e)  
 
+    def select_all_car_not_associated(self):
+
+        try:
+            query = select(cars).where(cars.c.user_id.is_(None))
+
+            with self.engine.connect() as conn:
+
+                result = conn.execute(query).fetchall()
+
+                for row in result:
+
+                    print(row)
+
+        except Exception as e:
+            print("Databse_error", e)
+
+
+
     def join_both(self,input_car_id, input_user_id):
 
         try:

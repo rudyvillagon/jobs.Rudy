@@ -1,5 +1,5 @@
-from sqlalchemy import insert, update, delete, select
-from Create_db_tables import users_table
+from sqlalchemy import insert, update, delete, select, func
+from Create_db_tables import users_table, cars
 
 class UsersManagement:
 
@@ -67,4 +67,26 @@ class UsersManagement:
         except Exception as e:
             print("Databse_error", e)
 
-    
+    def select_all_users_with_more_cars_then_one(self):
+
+        try:
+
+            query = (
+                select( 
+                    users_table.c.id,
+                    users_table.c.name,
+                    func.count(cars.c.id).label("total_cars")
+                )
+                .join(cars, users_table.c.id == cars.c.user_id)
+                .group_by(users_table.c.id, users_table.c.name)
+                .having(func.count(cars.c.id) > 1)
+            )
+
+            with self.engine.connect() as conn:
+                result = conn.execute(query).fetchall()
+
+                for row in result:
+                    print(row)
+
+        except Exception as e:
+            print("Databse_error", e)

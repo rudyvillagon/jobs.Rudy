@@ -11,5 +11,7 @@ def main():
 
     all_users.select_all_users()
 
+    all_users.select_all_users_with_more_cars_then_one()
+
 if __name__ == "__main__":
     main()

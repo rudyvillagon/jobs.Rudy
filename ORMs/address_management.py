@@ -66,3 +66,23 @@ class AddressManagement:
 
         except Exception as e:
             print("Databse_error", e) 
+
+    def select_all_address_with_specific_word(self, specific_word):
+
+        try:
+            query = (
+                select(
+                    address.c.id,
+                    address.c.full_address
+                )
+                .where(address.c.full_address.ilike(f"%{specific_word}%"))
+            )
+
+            with self.engine.connect() as conn:
+                result = conn.execute(query).fetchall()
+
+                for row in result:
+                    print(row)
+
+        except Exception as e:
+            print("Databse_error", e)
